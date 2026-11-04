@@ -99,3 +99,28 @@ while workspace:GetAttribute("QAPhase") ~= "Done" do
 	phase = nextPhase
 end
 print("QA client completed", Players.LocalPlayer.UserId)
+local UI = require(Players.LocalPlayer.PlayerScripts.Client.UI)
+local feedback = UI.feedback
+assert(UI.money.Text ~= "$0", "visual HUD did not receive state")
+feedback.setReduced(true)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+assert(feedback.activeParticles == 0, "reduced mode emitted particles")
+feedback.setReduced(false)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+assert(feedback.activeParticles == 24, "burst budget exceeded")
+task.wait(1)
+assert(feedback.activeParticles == 0, "effect instances leaked")
+feedback.setVolume(0)
+assert(feedback.group.Volume == 0, "mute did not apply")
+feedback.setVolume(0.65)
+local count = 0
+for _, child in ipairs(UI.gui:GetChildren()) do
+	if child:IsA("Sound") then
+		count += 1
+	end
+end
+assert(count == 8, "sound pool is unbounded")
+UI.settings()
+UI.closePanel()
+print("QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices)")

@@ -14,7 +14,7 @@ The delivered `StreamerLife.rbxlx` opens directly in Roblox Studio. Press **Play
 6. **MENU → UPGRADES** buys PC, Microphone and Camera/Lighting levels. **RECORDINGS** shows the last five recordings, remaining earning time and free popularity odds.
 7. **MENU → LIVE NOW** lists all occupied studios. Visit a live creator, then use **REACTIONS** to react or vote between challenges. **MY STUDIO** returns home.
 
-UI and gameplay strings are centralized in `src/shared/Strings.luau`; the game currently uses English. Real video, webcam/microphone capture, Robux purchases and arbitrary custom chat are absent.
+The game currently uses English; gameplay strings are centralized in `src/shared/Strings.luau`. Visual labels and equipment descriptions also live in `src/client/UI.luau`. Real video, webcam/microphone capture, Robux purchases and arbitrary custom chat are absent.
 
 ## Build and synchronize
 
@@ -37,12 +37,13 @@ For live sync, install the matching Rojo Studio plugin (`rojo plugin install`), 
 luau tests/domain.spec.luau
 luau tests/persistence.spec.luau
 luau tests/latency.spec.luau
-luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau
+luau tests/presentation.spec.luau
+luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau tests/presentation.spec.luau
 stylua --check src tests
 rojo build tests/studio.project.json -o StreamerLife-QA.rbxlx
 ```
 
-`scripts/check.ps1` also compiles every game and test script and builds five places: normal, QA, M4 load, Latency and Manual. CI runs the same checks and uploads the places. The fault adapter and all fixture remotes/bots live under `tests/`; none are mapped into the normal place. `Persistence.luau` is the exact runtime save coordinator with injected I/O for deterministic tests, not a second persistence implementation.
+`scripts/check.ps1` also compiles every game and test script and builds six places: normal, QA, M4 load, Latency, Manual and Visual tour. CI runs the same checks and uploads the places. The fault adapter and all fixture remotes/bots live under `tests/`; none are mapped into the normal place. `Persistence.luau` is the exact runtime save coordinator with injected I/O for deterministic tests, not a second persistence implementation.
 
 The QA place is **test-only**. Open it and select **Test → Server & Clients → 2 clients**. Bots send the same action protocol as the UI; the server checks spawning, forged reward rejection, all three challenges, a recording, studio visits, voting/reactions, social limits, all upgrade categories and a profile save/reacquire round-trip. Look for `QA ALL PASSED` in the server Output. The scenario takes about two minutes. It requires isolated memory mode and refuses published servers. Never publish the QA place.
 
@@ -73,9 +74,9 @@ The persistence design follows Roblox's [UpdateAsync guidance](https://create.ro
 
 ## Assets and ownership
 
-All city geometry, equipment and interface elements are original programmatic Roblox primitives. There are no marketplace models, third-party scripts or downloaded textures. The notification sound references Roblox's installed `rbxasset://sounds/volume_slider.ogg`; it is not redistributed. Avatars and their cosmetics are Roblox-provided player content. See [asset notes](docs/ASSETS.md).
+All city geometry, equipment and interface elements are original programmatic Roblox primitives. There are no marketplace models, third-party scripts or downloaded textures. Three installed Roblox audio sources form a small set of original cue arrangements; the recordings are referenced, not redistributed. The approved AI-generated concept is a documentation reference, excluded from the playable place. Avatars and their cosmetics are Roblox-provided player content. See [asset notes](docs/ASSETS.md).
 
-Development is on `feature/issue-1-mvp`; `main` starts with the owner-authorized empty baseline. The pull request remains a draft pending acceptance. Do not merge or publish from this repository without the owner's manual acceptance.
+MVP development is on `feature/issue-1-mvp`; the separate visual pass is on `feature/issue-4-visual-pass`, stacked on that branch.  `main` starts with the owner-authorized empty baseline. The pull request remains a draft pending acceptance. Do not merge or publish from this repository without the owner's manual acceptance.
 
 ## M4 diagnostics and owner gates
 
@@ -86,3 +87,11 @@ Build `tests/latency.project.json` for a one-client Timing diagnostic. Configure
 Build `tests/manual.project.json` for a manual Studio session. Its passive observer records first State/Start/Reward, stream reports, purchases and camera offsets. It sends no input, changes no profile and contains no automatic driver. Use mouse/keyboard and the device emulator yourself; retain `MANUAL` log lines. All diagnostic places are Studio-only and must never be published.
 
 See [OWNER-CHECKLIST](docs/OWNER-CHECKLIST.md) for exact private DataStore, physical-phone and 12–16 real-client steps. These remain **NOT VERIFIED — OWNER ACTION** until evidence exists. Publishing, access/API settings, and PR merge remain owner-controlled. A one-minute absence is not guaranteed to show $1: offline payouts are integer with a carried fractional cursor; the checklist computes the necessary wait from the displayed recording rate.
+
+## Visual pass — issue #4
+
+The owner-approved [warm daylight direction](docs/ART_DIRECTION.md) replaces the blockout with a modular creator neighborhood, furnished studios, twelve distinct equipment variants, a responsive cream/ink HUD and brief reward/recording feedback. Existing progression, prices, odds and server authority are preserved. The display label **Hot** uses the existing internal **Popular** tier.
+
+Use **Menu → Sound & Effects** to change sound volume or reduce effects. These are local session preferences. Low effects removes confetti, scale pulses and LIVE blinking and disables decorative studio lights; danger warnings remain visible.
+
+Build `tests/visual.project.json` to inspect the staged visual tour. Press **N** for the next view, **B** for the previous view, **P** for a 30-second rendering sample. The fixture has fixed cameras, held challenges, seeded profiles and neutral display-name labels. It is for comparable screenshots, **not gameplay acceptance**. The normal build excludes this fixture. The QA place additionally checks all equipment levels, instance reuse, clear studio entry paths and bounded client effects.

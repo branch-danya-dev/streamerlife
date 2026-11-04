@@ -83,5 +83,43 @@ assert(
 )
 assert(Store.records[host].token ~= oldToken, "connection token was reused")
 print("QA PASS three visible upgrade paths and profile save/reacquire round-trip")
+local room = City.owners[host]
+local counts = {}
+for level = 0, 3 do
+	local fixture =
+		{ upgrades = { PC = level, Microphone = level, Camera = level }, videos = {}, cosmetics = {} }
+	City.updateEquipment(host, fixture)
+	counts[level] = {}
+	for _, key in ipairs({ "PC", "Microphone", "Camera" }) do
+		local model = room.equipment[key]
+		assert(model and model:GetAttribute("EquipmentLevel") == level, "wrong visual level")
+		local n = 0
+		for _, item in ipairs(model:GetDescendants()) do
+			if item:IsA("BasePart") then
+				n += 1
+				assert(
+					item.Anchored and not item.CanCollide and not item.CanTouch,
+					"equipment obstructs movement"
+				)
+			end
+		end
+		counts[level][key] = n
+		if level > 0 then
+			assert(n > counts[level - 1][key], "upgrade only recolors equipment")
+		end
+		City.updateEquipment(host, fixture)
+		assert(room.equipment[key] == model, "unchanged equipment rebuilt")
+	end
+end
+City.updateEquipment(host, Store.get(host))
+for _, studio in ipairs(City.rooms) do
+	local params = RaycastParams.new()
+	params.FilterType, params.FilterDescendantsInstances = Enum.RaycastFilterType.Include, { studio.model }
+	assert(
+		not workspace:Raycast(studio.center + Vector3.new(0, 4, -18), Vector3.new(0, 0, 25), params),
+		"front entry corridor blocked"
+	)
+end
+print("QA PASS all 12 equipment variants, cached updates, 16 clear entry corridors")
 workspace:SetAttribute("QAPhase", "Done")
 print("QA ALL PASSED (two real Studio clients, memory backend)")

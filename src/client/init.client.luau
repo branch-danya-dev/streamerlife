@@ -2,6 +2,7 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
+local Tween = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = require(Shared.Balance)
@@ -31,6 +32,7 @@ local function input(verb, value)
 				return
 			end
 			stoppedId, stoppedAt = c.id, now
+			UI.feedback.cue("stop")
 		end
 		send("Input", { id = c.id, verb = verb, value = value })
 	end
@@ -57,7 +59,7 @@ renderPanel = function(kind)
 	UI.panelKind = kind
 	local p = state.profile
 	if kind == "Menu" then
-		for _, key in ipairs({ "Gear", "Videos", "Live" }) do
+		for _, key in ipairs({ "Gear", "Videos", "Live", "Settings" }) do
 			UI.rowButton(Strings[key], function()
 				renderPanel(key)
 			end)
@@ -70,23 +72,15 @@ renderPanel = function(kind)
 			send("Home")
 			UI.closePanel()
 		end)
+	elseif kind == "Settings" then
+		UI.settings()
 	elseif kind == "Gear" then
 		for _, category in ipairs({ "PC", "Microphone", "Camera" }) do
 			local cost = Domain.price(p, category)
 			if cost then
-				UI.rowButton(
-					string.format(
-						Strings.Upgrade,
-						Strings[category],
-						p.upgrades[category],
-						p.upgrades[category] + 1,
-						cost
-					),
-					function()
-						send("Buy", { category = category, expectedLevel = p.upgrades[category] })
-					end,
-					if p.money >= cost then UI.colors.mint else nil
-				)
+				UI.upgradeRow(category, p.upgrades[category], cost, p.money >= cost, function()
+					send("Buy", { category = category, expectedLevel = p.upgrades[category] })
+				end)
 			else
 				UI.row(string.format(Strings.MaxLevel, Strings[category]), 54)
 			end
@@ -97,17 +91,7 @@ renderPanel = function(kind)
 			UI.row(Strings.NoVideos)
 		end
 		for _, video in ipairs(p.videos) do
-			UI.row(
-				string.format(
-					Strings.VideoLine,
-					Strings[video.tier],
-					video.views,
-					video.cashRate,
-					(Config.OfflineCap - video.paidSeconds) / 3600
-				),
-				76,
-				UI.colors.gold
-			)
+			UI.videoRow(video, Config.OfflineCap)
 		end
 		UI.row(oddsText(p), 100, UI.colors.muted)
 	elseif kind == "Live" then
@@ -196,7 +180,7 @@ local function buildBoard(c)
 	visuals = {}
 	restoreCamera()
 	if not c then
-		visuals.breakText = UI.label(UI.board, "", UDim2.fromScale(1, 1), nil, 18, UI.colors.mint)
+		visuals.breakText = UI.label(UI.board, "", UDim2.fromScale(1, 1), nil, 18, UI.colors.white)
 		visuals.breakText.TextXAlignment = Enum.TextXAlignment.Center
 		UI.button(
 			UI.controls,
@@ -230,7 +214,7 @@ local function buildBoard(c)
 			end, UI.colors.mint)
 		end
 	elseif c.kind == "Rain" then
-		visuals.items = {}
+		visuals.items, visuals.resolved = {}, {}
 		for lane = 1, 4 do
 			UI.make("Frame", {
 				Size = UDim2.new(0, 1, 1, 0),
@@ -271,7 +255,7 @@ local function buildBoard(c)
 		}, UI.board)
 		UI.round(visuals.catcher, 6)
 	else
-		visuals.tiles = {}
+		visuals.tiles, visuals.collapsed, visuals.fading, visuals.warnings = {}, {}, {}, {}
 		for cell = 1, 16 do
 			local tile = UI.make("Frame", {
 				Size = UDim2.new(0.25, -4, 0.25, -4),
@@ -281,6 +265,8 @@ local function buildBoard(c)
 			}, UI.board)
 			UI.round(tile, 5)
 			visuals.tiles[cell] = tile
+			visuals.warnings[cell] = UI.label(tile, "!", UDim2.fromScale(1, 1), nil, 12, UI.colors.white)
+			visuals.warnings[cell].TextXAlignment = Enum.TextXAlignment.Center
 		end
 		visuals.avatar = UI.label(UI.board, "●", UDim2.fromScale(0.25, 0.25), nil, 23, UI.colors.bg)
 		visuals.avatar.TextXAlignment, visuals.avatar.ZIndex = Enum.TextXAlignment.Center, 3
@@ -312,7 +298,8 @@ end
 local function updateState(nextState)
 	state = nextState
 	local p, s = state.profile, state.session
-	UI.stats.Text = string.format(Strings.Stats, p.money, p.subscribers, p.views)
+	UI.setStats(p)
+	UI.setSession(s, if state.watching then state.watchName else nil)
 	UI.primary.Text = if state.watching then Strings.Social elseif s then Strings.EndStream else Strings.GoLive
 	UI.test.Text = if state.testMode then Strings.TestMode else ""
 	local cheapest, category = math.huge, nil
@@ -327,7 +314,7 @@ local function updateState(nextState)
 		elseif category then string.format(Strings.Goal, Strings[category], cheapest)
 		else Strings.Maxed
 	UI.game.Visible = s ~= nil
-	UI.chat.Visible = not (UI.compact and s ~= nil)
+	UI.chat.Visible = not UI.compact and not UI.shortPortrait
 	local c = s and s.challenge
 	local key = (if c then c.id elseif s then "break:" .. tostring(s.nextAt) else "idle")
 		.. tostring(state.watching)
@@ -360,52 +347,46 @@ event.OnClientEvent:Connect(function(kind, payload)
 	elseif kind == "Directory" then
 		directory = payload
 	elseif kind == "Toast" then
-		UI.toast(payload)
+		local cue = if payload == Strings.Bought
+			then "purchase"
+			elseif payload == Strings.Voted then "vote"
+			elseif payload == Strings.SocialReward then "donate"
+			else nil
+		UI.toast(payload, nil, cue ~= nil)
+		if cue then
+			UI.feedback.cue(cue)
+		end
 	elseif kind == "Panel" then
 		renderPanel(payload)
 	elseif kind == "Chat" then
 		UI.chat.Text = payload
 	elseif kind == "Reaction" then
 		UI.chat.Text = string.format(Strings.Reaction, payload.name, Strings.Reactions[payload.index])
-		UI.toast(Strings.Reactions[payload.index])
+		UI.toast(Strings.Reactions[payload.index], true, true)
+		UI.feedback.cue("reaction")
+		UI.feedback.pulse(UI.chat)
 	elseif kind == "Reward" then
 		local reward = payload.reward
 		UI.toast(
-			(if payload.success then Strings.Success else Strings.Miss)
+			(
+				if payload.grade == "Perfect"
+					then Strings.Perfect
+					elseif payload.grade == "Near" then Strings.Near
+					elseif payload.success then Strings.Success
+					else Strings.Miss
+			)
+				.. (if (payload.combo or 0) > 1 then "  ×" .. payload.combo else "")
 				.. "\n"
 				.. string.format(Strings.Reward, reward.money, reward.views, reward.subscribers),
-			payload.success
+			payload.success,
+			true
 		)
+		UI.feedback.reward(reward, payload.success, payload.grade, payload.combo)
 	elseif kind == "Report" then
 		restoreCamera()
-		UI.openPanel(Strings.Report)
-		UI.panelKind = nil
-		local r = payload.report
-		UI.row(
-			string.format(
-				Strings.ReportStats,
-				r.views,
-				r.subscribers,
-				r.money,
-				r.donations,
-				r.successes,
-				r.challenges
-			),
-			110
-		)
-		UI.row(
-			if payload.video
-				then string.format(Strings.Published, Strings[payload.video.tier])
-				else Strings.TooShort,
-			74,
-			UI.colors.gold
-		)
-		if state then
-			UI.row(oddsText(state.profile), 90, UI.colors.muted)
-		end
-		UI.rowButton(Strings.Gear, function()
+		UI.report(payload.report, payload.video, if state then oddsText(state.profile) else "", function()
 			renderPanel("Gear")
-		end, UI.colors.mint)
+		end)
 	elseif kind == "Welcome" and (payload.money > 0 or payload.views > 0) then
 		UI.openPanel(Strings.Welcome)
 		UI.panelKind = nil
@@ -450,14 +431,18 @@ end)
 
 RunService.RenderStepped:Connect(function()
 	local s = state and state.session
+	UI.feedback.roofs(os.clock(), s and s.challenge and s.challenge.kind == "Fall")
 	if not s then
 		return
 	end
 	local now, c = workspace:GetServerTimeNow(), s.challenge
+	UI.liveBadge.TextTransparency = if UI.feedback.reduced then 0 else 0.1 + math.abs(math.sin(now * 2)) * 0.2
 	if not c then
 		UI.title.Text =
 			string.format(Strings.StreamStats, math.max(0, math.ceil(s.endsAt - now)), s.viewers, s.combo)
-		UI.help.Text = if state.watching then Strings.Vote else Strings.Subtitle
+		UI.help.Text = if state.watching
+			then string.format(Strings.Watch, state.watchName)
+			else Strings.Subtitle
 		if visuals.breakText then
 			local ballots = {}
 			for _, choice in ipairs(s.choices) do
@@ -470,7 +455,10 @@ RunService.RenderStepped:Connect(function()
 		return
 	end
 	UI.title.Text = string.format(Strings.ChallengeTime, Strings[c.kind], math.max(0, c.endsAt - now))
-	UI.help.Text = if now < c.startsAt then Strings.Waiting else Strings[c.kind .. "Help"]
+	UI.help.Text = if state.watching
+		then string.format(Strings.Watch, state.watchName)
+		elseif now < c.startsAt then Strings.Waiting
+		else Strings[c.kind .. "Help"]
 	if c.kind == "Timing" and visuals.pointer then
 		local pointerTime = if stoppedId == c.id then stoppedAt else now
 		visuals.pointer.Position = UDim2.new(Rules.slider(pointerTime - c.startsAt), -3, 0.1, 0)
@@ -478,6 +466,13 @@ RunService.RenderStepped:Connect(function()
 		for index, item in ipairs(c.items) do
 			local fraction = (now - (item.at - 2)) / 2
 			local dot = visuals.items[index]
+			if item.done and not visuals.resolved[index] then
+				visuals.resolved[index] = true
+				if item.caught then
+					UI.feedback.cue(if item.good then "donate" else "miss")
+					UI.feedback.pulse(visuals.catcher, 1.12)
+				end
+			end
 			dot.Visible = fraction >= 0 and fraction <= 1 and not item.done
 			dot.Position = UDim2.fromScale((item.lane - 0.5) / 4, fraction * 0.8)
 		end
@@ -485,10 +480,31 @@ RunService.RenderStepped:Connect(function()
 	elseif c.kind == "Fall" and visuals.tiles then
 		for cell, tile in ipairs(visuals.tiles) do
 			tile.BackgroundColor3 = if c.danger[cell] then UI.colors.red else UI.colors.mint
-			tile.BackgroundTransparency = if c.collapsed[cell]
-				then 1
-				elseif c.danger[cell] then 0.2 + math.abs(math.sin(now * 10)) * 0.4
-				else 0
+			visuals.warnings[cell].Visible = c.danger[cell] and not c.collapsed[cell]
+			local collapsed = c.collapsed[cell] == true
+			if collapsed ~= (visuals.collapsed[cell] == true) then
+				visuals.collapsed[cell], visuals.fading[cell] = collapsed, true
+				if collapsed then
+					UI.feedback.cue("stop")
+				end
+				local tween = Tween:Create(
+					tile,
+					TweenInfo.new(if UI.feedback.reduced then 0 else 0.16),
+					{ BackgroundTransparency = if collapsed then 1 else 0 }
+				)
+				local fading = visuals.fading
+				tween.Completed:Once(function()
+					fading[cell] = false
+				end)
+				tween:Play()
+			elseif not visuals.fading[cell] then
+				tile.BackgroundTransparency = if collapsed
+					then 1
+					elseif c.danger[cell] then (if UI.feedback.reduced
+						then 0.15
+						else 0.15 + math.abs(math.sin(now * math.pi)) * 0.3)
+					else 0
+			end
 		end
 		visuals.avatar.Position = UDim2.fromScale((c.cell - 1) % 4 / 4, math.floor((c.cell - 1) / 4) / 4)
 	end

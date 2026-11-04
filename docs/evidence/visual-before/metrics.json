@@ -1,0 +1,40 @@
+{
+  "source": "eca81cd1b87920a74a7e49d6d89ffba5199f9628",
+  "fixture": "staged, one local Studio client, memory backend, current-device viewport",
+  "samples": [
+    {
+      "meanSendKbps": 0.5367262219560558,
+      "seconds": 30.015093000023626,
+      "scene": "Studio",
+      "minFPS": 59.925105855610425,
+      "meanMemoryMB": 2382.618130387931,
+      "samples": 29,
+      "meanReceiveKbps": 0,
+      "worstFrameMs": 18.273700028657913,
+      "viewport": "833, 635",
+      "lights": 16,
+      "meanFPS": 60.00205228572144,
+      "emitters": 0,
+      "maxMemoryMB": 2382.87109375,
+      "parts": 293,
+      "utc": "2026-11-04T12:23:53.669Z"
+    },
+    {
+      "meanSendKbps": 0.511660557368706,
+      "seconds": 30.0158919999958,
+      "scene": "Plaza",
+      "minFPS": 59.95217636404621,
+      "meanMemoryMB": 2391.537311422414,
+      "samples": 29,
+      "meanReceiveKbps": 0,
+      "worstFrameMs": 18.502600491046906,
+      "viewport": "833, 635",
+      "lights": 16,
+      "meanFPS": 60.002632813987375,
+      "emitters": 0,
+      "maxMemoryMB": 2392.83203125,
+      "parts": 293,
+      "utc": "2026-11-04T12:26:38.345Z"
+    }
+  ]
+}

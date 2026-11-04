@@ -25,13 +25,14 @@ jobs:
           luau tests/domain.spec.luau
           luau tests/persistence.spec.luau
           luau tests/latency.spec.luau
+          luau tests/presentation.spec.luau
       - name: Analyze portable modules
-        run: luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau
+        run: luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau tests/presentation.spec.luau
       - name: Formatting and compilation
         run: |
           stylua --check src tests
           find src tests -name '*.luau' -print0 | xargs -0 -n1 luau-compile --null
-      - name: Build normal place and four diagnostic places
+      - name: Build normal place and five diagnostic places
         run: |
           mkdir -p build
           rojo build default.project.json -o build/StreamerLife.rbxlx
@@ -39,6 +40,7 @@ jobs:
           rojo build tests/m4.project.json -o build/StreamerLife-M4.rbxlx
           rojo build tests/latency.project.json -o build/StreamerLife-Latency.rbxlx
           rojo build tests/manual.project.json -o build/StreamerLife-Manual.rbxlx
+          rojo build tests/visual.project.json -o build/Visual-After.rbxlx
       - uses: actions/upload-artifact@v4
         with:
           name: StreamerLife-Studio
