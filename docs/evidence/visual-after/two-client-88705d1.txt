@@ -1,0 +1,11 @@
+Runtime 88705d131f142bf4c2753275d4b478949c41800c. Two real Studio clients, iPhone 17 Pro emulator / Windows / LAN, isolated memory backend. Application QA lines only. Engine legacy ChatScript startup informational warning occurred on Player1; no project-script error was found.
+2026-11-04T13:27:40.601Z,16.601501,371c,6,Info [FLog::CreatorOutput] QA PASS spawn and forged remote rejection
+2026-11-04T13:29:10.782Z,106.782585,2bc0,6,Info [FLog::CreatorOutput] QA PASS three games, recording, visit, vote, reactions and capped social rewards
+2026-11-04T13:29:13.799Z,109.799225,714c,6,Info [FLog::CreatorOutput] QA PASS three visible upgrade paths and profile save/reacquire round-trip
+2026-11-04T13:29:13.807Z,109.807198,714c,6,Info [FLog::CreatorOutput] QA PASS all 12 equipment variants, cached updates, 16 clear entry corridors
+2026-11-04T13:29:13.849Z,109.849808,714c,6,Info [FLog::CreatorOutput] QA VISUAL BUDGET {"maxLevelStudios":16,"glass":16,"lights":16,"parts":2959}
+2026-11-04T13:29:13.872Z,109.872864,714c,6,Info [FLog::CreatorOutput] QA ALL PASSED (two real Studio clients, memory backend)
+2026-11-04T13:29:14.665Z,103.665230,6d40,6,Info [FLog::CreatorOutput] QA client completed -1
+2026-11-04T13:29:15.730Z,104.730110,7b08,6,Info [FLog::CreatorOutput] QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)
+2026-11-04T13:29:14.631Z,102.631783,67d0,6,Info [FLog::CreatorOutput] QA client completed -2
+2026-11-04T13:29:15.699Z,103.699409,3478,6,Info [FLog::CreatorOutput] QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)

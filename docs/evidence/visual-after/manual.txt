@@ -1,0 +1,18 @@
+Runtime 88705d131f142bf4c2753275d4b478949c41800c. Passive observer, no bot. Studio 0.745.462.7451125 / Windows; memory backend. Only application MANUAL lines are extracted; unrelated editor/plugin logs omitted.
+2026-11-04T13:24:14.062Z,38.062229,2a8c,6,Info [FLog::CreatorOutput] MANUAL READY
+2026-11-04T13:24:16.739Z,40.739338,8cdc,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.1776885986328125, -11.858543395996094 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T13:24:33.020Z,57.020432,2a8c,6,Info [FLog::CreatorOutput] MANUAL START {"seconds":18.958649400039577,"stream":1}
+2026-11-04T13:24:42.686Z,66.686943,3d20,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":1,"seconds":28.625504900002853,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T13:25:01.452Z,85.452995,6e0c,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":2,"seconds":47.39142930001253,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":3}}
+2026-11-04T13:25:13.937Z,97.937218,2978,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":3,"seconds":59.87493160000304,"success":false,"reward":{"money":12,"subscribers":3,"views":32,"donations":0}}
+2026-11-04T13:25:14.953Z,98.953537,2978,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.1776885986328125, -11.858543395996094 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T13:25:27.718Z,111.718254,8cdc,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":4,"seconds":73.65641749999486,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T13:25:46.483Z,130.483871,57f4,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":5,"seconds":92.42251450003823,"success":true,"reward":{"money":13,"subscribers":4,"views":36,"donations":13}}
+2026-11-04T13:25:54.801Z,138.801849,3d20,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":6,"seconds":100.74018880003132,"success":false,"reward":{"money":5,"subscribers":1,"views":14,"donations":0}}
+2026-11-04T13:25:55.818Z,139.818390,6e0c,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.1776885986328125, -11.858543395996094 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T13:26:08.533Z,152.533340,6c20,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":7,"seconds":114.47148900001776,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T13:26:27.298Z,171.298813,6c20,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":8,"seconds":133.2373857999919,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":3}}
+2026-11-04T13:26:37.666Z,181.666306,6e0c,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":9,"seconds":143.60461919999217,"success":false,"reward":{"money":9,"subscribers":2,"views":23,"donations":0}}
+2026-11-04T13:26:38.666Z,182.666122,8cdc,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.1776885986328125, -11.858543395996094 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T13:26:51.449Z,195.449615,8cdc,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":10,"seconds":157.38685110001826,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T13:27:02.982Z,206.982498,8cdc,6,Info [FLog::CreatorOutput] MANUAL REPORT {"report":{"views":153,"challenges":10,"money":57,"subscribers":16,"donations":19,"successes":1},"seconds":168.91951460001293,"recording":true,"stream":1}

@@ -120,7 +120,16 @@ function Streams.tick(player, now)
 			if not table.find(s.choices, s.nextKind) then
 				s.nextKind = s.choices[1]
 			end
-			Streams.emit(player, "Reward", { reward = reward, success = score >= 0.5 })
+			Streams.emit(player, "Reward", {
+				reward = reward,
+				success = score >= 0.5,
+				grade = if score >= 0.95
+					then "Perfect"
+					elseif score >= 0.5 then "Nice"
+					elseif score > 0 then "Near"
+					else "Miss",
+				combo = s.combo,
+			})
 			local phrases = if score >= 0.5 then Strings.ChatGood else Strings.ChatMiss
 			Streams.emit(player, "Chat", phrases[rng:NextInteger(1, #phrases)])
 		end

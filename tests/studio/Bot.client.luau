@@ -17,6 +17,7 @@ end
 local phase, lastVisit, lastReact, lastVote, lastInput, bought = nil, 0, 0, nil, 0, false
 local stopIds = {}
 local begun = false
+local cameraChecked = false
 while workspace:GetAttribute("QAPhase") ~= "Done" do
 	task.wait(0.05)
 	if not state then
@@ -27,6 +28,37 @@ while workspace:GetAttribute("QAPhase") ~= "Done" do
 	local hostId = workspace:GetAttribute("QAHost")
 	local isHost = hostId == Players.LocalPlayer.UserId
 	local now = workspace:GetServerTimeNow()
+	local challenge = state.session and state.session.challenge
+	if
+		isHost
+		and challenge
+		and challenge.kind == "Fall"
+		and now > challenge.startsAt + 0.4
+		and not cameraChecked
+	then
+		local camera = workspace.CurrentCamera
+		local center = challenge.origin + Vector3.new(7.5, 0, 7.5)
+		local point, visible = camera:WorldToViewportPoint(center)
+		local right = camera:WorldToViewportPoint(center + Vector3.new(5, 0, 0))
+		local up = camera:WorldToViewportPoint(center + Vector3.new(0, 0, -5))
+		assert(
+			visible and right.X > point.X and up.Y < point.Y,
+			"Fall world directions disagree with UI grid"
+		)
+		local hidden = false
+		for _, room in ipairs(workspace.ViralCity:GetChildren()) do
+			local roof = room:FindFirstChild("CameraRoof")
+			if roof then
+				local delta = center - roof:GetAttribute("StudioCenter")
+				if math.abs(delta.X) < 14 and math.abs(delta.Z) < 16 then
+					hidden = roof.LocalTransparencyModifier == 1
+				end
+			end
+		end
+		assert(hidden, "Fall arena is obscured by its studio roof")
+		cameraChecked = true
+		print("QA PASS Fall camera Right/Up projection and unobstructed studio roof")
+	end
 	if nextPhase == "Security" and phase ~= nextPhase then
 		send("Grant", { money = 1e30, subscribers = 1e30 })
 		send("Buy", { category = "PC", price = -9999, userId = hostId })
@@ -99,3 +131,41 @@ while workspace:GetAttribute("QAPhase") ~= "Done" do
 	phase = nextPhase
 end
 print("QA client completed", Players.LocalPlayer.UserId)
+assert(
+	cameraChecked or Players.LocalPlayer.UserId ~= workspace:GetAttribute("QAHost"),
+	"Fall camera orientation was not exercised"
+)
+local UI = require(Players.LocalPlayer.PlayerScripts.Client.UI)
+local feedback = UI.feedback
+assert(UI.money.Text ~= "$0", "visual HUD did not receive state")
+feedback.setReduced(true)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+assert(feedback.activeParticles == 0, "reduced mode emitted particles")
+feedback.setReduced(false)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+feedback.burst(UDim2.fromScale(0.5, 0.5), UI.colors.gold, 100)
+assert(feedback.activeParticles == 24, "burst budget exceeded")
+task.wait(1)
+assert(feedback.activeParticles == 0, "effect instances leaked")
+feedback.setVolume(0)
+assert(feedback.group.Volume == 0, "mute did not apply")
+feedback.setVolume(0.65)
+local count = 0
+for _, child in ipairs(UI.gui:GetChildren()) do
+	if child:IsA("Sound") then
+		count += 1
+	end
+end
+assert(count == 8, "sound pool is unbounded")
+local voice = UI.gui:FindFirstChild("CueVoice1")
+for name, source in pairs(require(Shared.SoundPalette).sources) do
+	voice:Stop()
+	voice.SoundId = source
+	game:GetService("ContentProvider"):PreloadAsync({ voice })
+	assert(voice.IsLoaded and voice.TimeLength > 0, "bundled sound failed to load: " .. name)
+end
+UI.settings()
+UI.closePanel()
+print(
+	"QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)"
+)

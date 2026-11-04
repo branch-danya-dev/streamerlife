@@ -1,6 +1,7 @@
 --!nonstrict
 local Shared = game:GetService("ReplicatedStorage"):WaitForChild("Shared")
 local Config = require(Shared.Balance)
+local Theme = require(Shared.Theme)(Color3.fromRGB)
 local Rules = require(Shared.Rules)
 local HttpService = game:GetService("HttpService")
 local City = require(script.Parent.City)
@@ -52,13 +53,8 @@ function Minigames.begin(player, kind, now)
 		c.arena.Name, c.arena.Parent = "ChallengeArena", room.model
 		for cell = 1, 16 do
 			local position = c.origin + Vector3.new((cell - 1) % 4 * 5, 0, math.floor((cell - 1) / 4) * 5)
-			c.tiles[cell] = City.part(
-				c.arena,
-				"Tile" .. cell,
-				Vector3.new(4.6, 0.6, 4.6),
-				position,
-				Color3.fromRGB(96, 255, 190)
-			)
+			c.tiles[cell] =
+				City.part(c.arena, "Tile" .. cell, Vector3.new(4.6, 0.6, 4.6), position, Theme.mint)
 		end
 		if root and humanoid and humanoid.Health > 0 then
 			c.root, c.humanoid, c.wasAnchored, c.wasAutoRotate =
@@ -129,7 +125,7 @@ function Minigames.tick(c, now)
 		if c.recoverAt and now >= c.recoverAt then
 			c.recoverAt, c.nextWave, c.collapsed = nil, now + 0.2, {}
 			for _, tile in ipairs(c.tiles) do
-				tile.Transparency, tile.Color = 0, Color3.fromRGB(96, 255, 190)
+				tile.Transparency, tile.Color = 0, Theme.mint
 			end
 		end
 		if now >= c.nextWave then
@@ -151,7 +147,7 @@ function Minigames.tick(c, now)
 				end
 			end
 			for cell in pairs(c.danger) do
-				c.tiles[cell].Color = Color3.fromRGB(255, 104, 130)
+				c.tiles[cell].Color = Theme.coral
 			end
 		end
 	end

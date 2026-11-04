@@ -9,7 +9,8 @@ function Invoke-Check([string]$Name, [string[]]$ToolArguments) {
 Invoke-Check 'luau' @('tests/domain.spec.luau')
 Invoke-Check 'luau' @('tests/persistence.spec.luau')
 Invoke-Check 'luau' @('tests/latency.spec.luau')
-Invoke-Check 'luau-analyze' @('src/shared', 'src/server/Persistence.luau', 'tests/domain.spec.luau', 'tests/persistence.spec.luau', 'tests/latency.spec.luau')
+Invoke-Check 'luau' @('tests/presentation.spec.luau')
+Invoke-Check 'luau-analyze' @('src/shared', 'src/server/Persistence.luau', 'tests/domain.spec.luau', 'tests/persistence.spec.luau', 'tests/latency.spec.luau', 'tests/presentation.spec.luau')
 Invoke-Check 'stylua' @('--check', 'src', 'tests')
 Get-ChildItem src,tests -Recurse -Filter '*.luau' | ForEach-Object {
     Invoke-Check 'luau-compile' @('--null', $_.FullName)
@@ -20,3 +21,5 @@ Invoke-Check 'rojo' @('build', 'tests/studio.project.json', '-o', 'build/Streame
 Invoke-Check 'rojo' @('build', 'tests/m4.project.json', '-o', 'build/StreamerLife-M4.rbxlx')
 Invoke-Check 'rojo' @('build', 'tests/latency.project.json', '-o', 'build/StreamerLife-Latency.rbxlx')
 Invoke-Check 'rojo' @('build', 'tests/manual.project.json', '-o', 'build/StreamerLife-Manual.rbxlx')
+
+Invoke-Check 'rojo' @('build', 'tests/visual.project.json', '-o', 'build/Visual-After.rbxlx')

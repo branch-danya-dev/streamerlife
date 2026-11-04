@@ -83,5 +83,72 @@ assert(
 )
 assert(Store.records[host].token ~= oldToken, "connection token was reused")
 print("QA PASS three visible upgrade paths and profile save/reacquire round-trip")
+local room = City.owners[host]
+local counts = {}
+for level = 0, 3 do
+	local fixture =
+		{ upgrades = { PC = level, Microphone = level, Camera = level }, videos = {}, cosmetics = {} }
+	City.updateEquipment(host, fixture)
+	counts[level] = {}
+	for _, key in ipairs({ "PC", "Microphone", "Camera" }) do
+		local model = room.equipment[key]
+		assert(model and model:GetAttribute("EquipmentLevel") == level, "wrong visual level")
+		local n = 0
+		for _, item in ipairs(model:GetDescendants()) do
+			if item:IsA("BasePart") then
+				n += 1
+				assert(
+					item.Anchored and not item.CanCollide and not item.CanTouch,
+					"equipment obstructs movement"
+				)
+			end
+		end
+		counts[level][key] = n
+		if level > 0 then
+			assert(n > counts[level - 1][key], "upgrade only recolors equipment")
+		end
+		City.updateEquipment(host, fixture)
+		assert(room.equipment[key] == model, "unchanged equipment rebuilt")
+	end
+end
+City.updateEquipment(host, Store.get(host))
+for _, studio in ipairs(City.rooms) do
+	local params = RaycastParams.new()
+	params.FilterType, params.FilterDescendantsInstances = Enum.RaycastFilterType.Include, { studio.model }
+	assert(
+		not workspace:Raycast(studio.center + Vector3.new(0, 4, -18), Vector3.new(0, 0, 25), params),
+		"front entry corridor blocked"
+	)
+end
+print("QA PASS all 12 equipment variants, cached updates, 16 clear entry corridors")
+local equipment = require(server.Visuals.Equipment)
+for _, studio in ipairs(City.rooms) do
+	equipment.build(studio, { upgrades = { PC = 3, Microphone = 3, Camera = 3 } })
+end
+local parts, lights, glass = 0, 0, 0
+for _, item in ipairs(City.world:GetDescendants()) do
+	if item:IsA("BasePart") then
+		parts += 1
+		if item.Material == Enum.Material.Glass then
+			glass += 1
+		end
+	elseif item:IsA("Light") then
+		lights += 1
+	end
+end
+assert(parts <= 3600 and lights <= 16 and glass <= 16, "16 max-level studios exceed visual instance budget")
+print(
+	"QA VISUAL BUDGET "
+		.. game:GetService("HttpService")
+			:JSONEncode({ maxLevelStudios = 16, parts = parts, lights = lights, glass = glass })
+)
+for _, studio in ipairs(City.rooms) do
+	equipment.build(
+		studio,
+		if studio.owner
+			then Store.get(studio.owner)
+			else { upgrades = { PC = 0, Microphone = 0, Camera = 0 } }
+	)
+end
 workspace:SetAttribute("QAPhase", "Done")
 print("QA ALL PASSED (two real Studio clients, memory backend)")
