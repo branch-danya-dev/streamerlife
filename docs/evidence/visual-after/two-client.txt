@@ -1,0 +1,12 @@
+Runtime dffdad97fecb108c99d859b2c58e9abff850199a. Two real Studio clients / Windows / LAN / memory backend. Desktop preset; host switched to iPhone 17 Pro landscape during the stream. Application QA lines only. Studio-only fixture SHA-256 f3aa425999c5f35ace8eb7656130404cb9405379731428f8ceabeae3f20e6a2c.
+2026-11-04T13:55:29.825Z,16.825716,94c0,6,Info [FLog::CreatorOutput] QA PASS spawn and forged remote rejection
+2026-11-04T13:56:59.888Z,106.888290,4904,6,Info [FLog::CreatorOutput] QA PASS three games, recording, visit, vote, reactions and capped social rewards
+2026-11-04T13:57:02.907Z,109.907013,3ea0,6,Info [FLog::CreatorOutput] QA PASS three visible upgrade paths and profile save/reacquire round-trip
+2026-11-04T13:57:02.917Z,109.917442,3ea0,6,Info [FLog::CreatorOutput] QA PASS all 12 equipment variants, cached updates, 16 clear entry corridors
+2026-11-04T13:57:02.966Z,109.966278,94c0,6,Info [FLog::CreatorOutput] QA VISUAL BUDGET {"maxLevelStudios":16,"glass":16,"lights":16,"parts":2959}
+2026-11-04T13:57:02.989Z,109.989204,94c0,6,Info [FLog::CreatorOutput] QA ALL PASSED (two real Studio clients, memory backend)
+2026-11-04T13:57:03.412Z,104.412384,4658,6,Info [FLog::CreatorOutput] QA client completed -2
+2026-11-04T13:57:04.478Z,105.478462,43f0,6,Info [FLog::CreatorOutput] QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)
+2026-11-04T13:55:39.513Z,20.513741,5df0,6,Info [FLog::CreatorOutput] QA PASS Fall camera Right/Up projection and unobstructed studio roof
+2026-11-04T13:57:02.411Z,103.411972,7aa4,6,Info [FLog::CreatorOutput] QA client completed -1
+2026-11-04T13:57:03.477Z,104.477837,76b8,6,Info [FLog::CreatorOutput] QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)

@@ -95,3 +95,5 @@ The owner-approved [warm daylight direction](docs/ART_DIRECTION.md) replaces the
 Use **Menu → Sound & Effects** to change sound volume or reduce effects. These are local session preferences. Low effects removes confetti, scale pulses and LIVE blinking and disables decorative studio lights; danger warnings remain visible.
 
 Build `tests/visual.project.json` to inspect the staged visual tour. Press **N** for the next view, **B** for the previous view, **P** for a 30-second rendering sample. The fixture has fixed cameras, held challenges, seeded profiles and neutral display-name labels. It is for comparable screenshots, **not gameplay acceptance**. The normal build excludes this fixture. The QA place additionally checks all equipment levels, instance reuse, clear studio entry paths and bounded client effects.
+
+See [visual validation](docs/VISUAL-VALIDATION.md) for paired screenshots, measured render costs, two-client regression results, a manual stream and the remaining owner checks. The visual PR remains a draft; these local results do not establish physical-phone or 16-client acceptance.

@@ -1,0 +1,40 @@
+{
+  "source": "2d27e170d7907637cdb259a927b8fade7001520a",
+  "fixtureSha256": "3f25be4bfa04ec2a445fdee4e3864fc8b8253fa9bb20b1b98fc53cdcf66aa396",
+  "samples": [
+    {
+      "meanSendKbps": 0.48758064570098086,
+      "seconds": 30.01556069997605,
+      "scene": "Studio",
+      "minFPS": 59.945719442562215,
+      "meanMemoryMB": 2455.3355334051726,
+      "samples": 29,
+      "meanReceiveKbps": 0,
+      "worstFrameMs": 18.554599955677986,
+      "viewport": "833, 635",
+      "lights": 16,
+      "meanFPS": 60.002394022961795,
+      "emitters": 0,
+      "maxMemoryMB": 2457.59375,
+      "parts": 2161,
+      "utc": "2026-11-04T12:59:43.835Z"
+    },
+    {
+      "meanSendKbps": 0.49656850407863484,
+      "seconds": 30.01498850004282,
+      "scene": "Plaza",
+      "minFPS": 59.942245994750046,
+      "meanMemoryMB": 2445.441271551724,
+      "samples": 29,
+      "meanReceiveKbps": 0,
+      "worstFrameMs": 18.636899068951607,
+      "viewport": "833, 635",
+      "lights": 16,
+      "meanFPS": 60.00404147060106,
+      "emitters": 0,
+      "maxMemoryMB": 2446.8828125,
+      "parts": 2161,
+      "utc": "2026-11-04T13:01:44.147Z"
+    }
+  ]
+}
