@@ -348,8 +348,9 @@ event.OnClientEvent:Connect(function(kind, payload)
 		updateState(payload)
 	elseif kind == "Arrival" then
 		restoreCamera()
+		-- Keep the default orbit below the facade awning after spawning/returning from Fall.
 		workspace.CurrentCamera.CFrame =
-			CFrame.lookAt(payload + Vector3.new(0, 8, -5), payload + Vector3.new(0, 2, 5))
+			CFrame.lookAt(payload + Vector3.new(0, 4, -9), payload + Vector3.new(0, 1, 0))
 	elseif kind == "Directory" then
 		directory = payload
 	elseif kind == "Toast" then
