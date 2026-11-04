@@ -1,0 +1,26 @@
+--!strict
+return table.freeze({
+	Schema = 1,
+	MaxValue = 1_000_000_000,
+	MaxPlayers = 16,
+	StreamSeconds = 150,
+	BreakSeconds = 6,
+	MinRecordingSeconds = 30,
+	StreamCooldown = 5,
+	OfflineCap = 8 * 3600,
+	MaxVideos = 5,
+	AutosaveSeconds = 45,
+	LeaseSeconds = 180,
+	SaveAttempts = 4,
+	SocialDailyCap = 30,
+	ReactionCooldown = 3,
+	ChallengeNames = { "Timing", "Rain", "Fall" },
+	Duration = { Timing = 7, Rain = 12, Fall = 12 },
+	Costs = { PC = { 80, 240, 720 }, Microphone = { 70, 210, 630 }, Camera = { 90, 270, 810 } },
+	Popularity = {
+		{ id = "Normal", weight = 78, multiplier = 1 },
+		{ id = "Popular", weight = 17, multiplier = 2 },
+		{ id = "Viral", weight = 4.5, multiplier = 5 },
+		{ id = "Legendary", weight = 0.5, multiplier = 12 },
+	},
+})

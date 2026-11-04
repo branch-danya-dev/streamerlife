@@ -1,0 +1,7 @@
+build/
+.tools/
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+sourcemap.json
