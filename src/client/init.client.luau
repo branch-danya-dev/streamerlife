@@ -345,7 +345,7 @@ event.OnClientEvent:Connect(function(kind, payload)
 	elseif kind == "Arrival" then
 		restoreCamera()
 		workspace.CurrentCamera.CFrame =
-			CFrame.lookAt(payload + Vector3.new(0, 9, -14), payload + Vector3.new(0, 2, 5))
+			CFrame.lookAt(payload + Vector3.new(0, 8, -5), payload + Vector3.new(0, 2, 5))
 	elseif kind == "Directory" then
 		directory = payload
 	elseif kind == "Toast" then
