@@ -1,0 +1,47 @@
+2026-11-04T11:33:11.860Z,34.860519,9668,6,Info [FLog::CreatorOutput] MANUAL READY
+2026-11-04T11:33:14.369Z,37.369347,8330,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:33:23.268Z,46.268314,9584,6,Info [FLog::CreatorOutput] MANUAL START {"seconds":11.408086799958256,"stream":1}
+2026-11-04T11:33:32.918Z,55.918144,9584,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":1,"seconds":21.058013599948028,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:33:51.650Z,74.650528,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":2,"seconds":39.79029289999744,"success":false,"reward":{"money":5,"subscribers":1,"views":14,"donations":5}}
+2026-11-04T11:34:10.417Z,93.417221,8e74,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":3,"seconds":58.5571559999953,"success":true,"reward":{"money":23,"subscribers":7,"views":63,"donations":0}}
+2026-11-04T11:34:11.433Z,94.433487,8330,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:34:24.150Z,107.150627,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":4,"seconds":72.28935310000088,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:34:42.931Z,125.931961,0ab8,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":5,"seconds":91.0716518999543,"success":true,"reward":{"money":15,"subscribers":4,"views":43,"donations":15}}
+2026-11-04T11:34:53.299Z,136.299866,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":6,"seconds":101.43962919997284,"success":false,"reward":{"money":9,"subscribers":2,"views":23,"donations":0}}
+2026-11-04T11:34:54.316Z,137.316360,4670,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:35:07.031Z,150.031464,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":7,"seconds":115.17124860000331,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:35:25.797Z,168.797409,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":8,"seconds":133.93669439997758,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":3}}
+2026-11-04T11:35:36.181Z,179.181610,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":9,"seconds":144.32054859999335,"success":false,"reward":{"money":9,"subscribers":2,"views":23,"donations":0}}
+2026-11-04T11:35:37.196Z,180.196701,4670,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:35:49.945Z,192.945755,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":10,"seconds":158.0859375,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:35:53.163Z,196.163635,9584,6,Info [FLog::CreatorOutput] MANUAL REPORT {"report":{"views":206,"challenges":10,"money":76,"subscribers":21,"donations":23,"successes":2},"seconds":161.30305319995387,"recording":true,"stream":1}
+2026-11-04T11:38:50.554Z,373.554993,9584,6,Info [FLog::CreatorOutput] MANUAL UPGRADE {"money":6,"seconds":338.6950428999844,"levels":{"PC":0,"Microphone":1,"Camera":0}}
+2026-11-04T11:39:03.822Z,386.822388,8330,6,Info [FLog::CreatorOutput] MANUAL START {"seconds":351.96164989995307,"stream":2}
+2026-11-04T11:39:13.521Z,396.521484,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":11,"seconds":361.6613792999997,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:39:32.270Z,415.270996,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":12,"seconds":380.4103572999593,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":3}}
+2026-11-04T11:39:40.571Z,423.571106,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":13,"seconds":388.7106367999804,"success":false,"reward":{"money":6,"subscribers":2,"views":14,"donations":0}}
+2026-11-04T11:39:41.587Z,424.587463,7cbc,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:39:54.353Z,437.353180,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":14,"seconds":402.4926117999712,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:40:13.119Z,456.119080,8e74,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":15,"seconds":421.25894430000337,"success":false,"reward":{"money":6,"subscribers":2,"views":14,"donations":6}}
+2026-11-04T11:40:25.602Z,468.602509,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":16,"seconds":433.74192919995405,"success":false,"reward":{"money":14,"subscribers":4,"views":32,"donations":0}}
+2026-11-04T11:40:26.618Z,469.618408,5c04,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:40:39.368Z,482.368439,0ab8,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":17,"seconds":447.50775669998259,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:40:58.118Z,501.118286,7cbc,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":18,"seconds":466.2575190999778,"success":false,"reward":{"money":12,"subscribers":3,"views":26,"donations":12}}
+2026-11-04T11:41:10.600Z,513.600159,9668,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":19,"seconds":478.7401919999975,"success":false,"reward":{"money":14,"subscribers":4,"views":31,"donations":0}}
+2026-11-04T11:41:11.600Z,514.600464,0ab8,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:41:24.432Z,527.432251,9584,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":20,"seconds":492.57206369994676,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:41:33.798Z,536.798523,7644,6,Info [FLog::CreatorOutput] MANUAL REPORT {"report":{"views":157,"challenges":10,"money":67,"subscribers":20,"donations":21,"successes":0},"seconds":501.9382443999639,"recording":true,"stream":2}
+2026-11-04T11:41:43.599Z,546.599548,7644,6,Info [FLog::CreatorOutput] MANUAL START {"seconds":511.7387099000043,"stream":3}
+2026-11-04T11:41:53.216Z,556.216187,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":21,"seconds":521.3554285999853,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:42:11.980Z,574.980835,4670,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":22,"seconds":540.1209275999572,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":3}}
+2026-11-04T11:42:28.631Z,591.631470,8e74,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":23,"seconds":556.7707643999602,"success":true,"reward":{"money":23,"subscribers":7,"views":54,"donations":0}}
+2026-11-04T11:42:29.647Z,592.647095,8e74,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:42:42.413Z,605.413513,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":24,"seconds":570.5528482999653,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:43:01.180Z,624.180725,9584,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":25,"seconds":589.319480999955,"success":false,"reward":{"money":6,"subscribers":2,"views":14,"donations":6}}
+2026-11-04T11:43:09.445Z,632.445496,9668,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":26,"seconds":597.5853564999998,"success":false,"reward":{"money":6,"subscribers":2,"views":14,"donations":0}}
+2026-11-04T11:43:10.462Z,633.462036,8e74,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:43:23.211Z,646.211426,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":27,"seconds":611.3511855999823,"success":false,"reward":{"money":3,"subscribers":1,"views":8,"donations":0}}
+2026-11-04T11:43:41.993Z,664.993530,7644,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":28,"seconds":630.1332790000015,"success":false,"reward":{"money":6,"subscribers":2,"views":14,"donations":6}}
+2026-11-04T11:44:00.777Z,683.777466,8330,6,Info [FLog::CreatorOutput] MANUAL REWARD {"number":29,"seconds":648.9172438999522,"success":true,"reward":{"money":27,"subscribers":8,"views":63,"donations":0}}
+2026-11-04T11:44:01.793Z,684.793640,8330,6,Info [FLog::CreatorOutput] MANUAL CAMERA 0, 5.304673194885254, -6.799720764160156 0, 1.2248411178588867, 0 0, -0.2751588821411133, 0
+2026-11-04T11:44:13.527Z,696.527283,5c04,6,Info [FLog::CreatorOutput] MANUAL REPORT {"report":{"views":191,"challenges":9,"money":80,"subscribers":25,"donations":15,"successes":2},"seconds":661.6667101999628,"recording":true,"stream":3}

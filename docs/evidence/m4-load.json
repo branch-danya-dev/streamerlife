@@ -1,0 +1,2326 @@
+{
+  "gameCommit": "9148426a544fe1a997f2aa3fa9ae15f147e0a4ad",
+  "environment": {
+    "studio": "0.745.462.7451125",
+    "os": "Windows",
+    "cpu": "AMD Ryzen 5 7600X, 12 logical threads",
+    "ramGB": 31.112,
+    "realClients": 8,
+    "syntheticProfilesAtPeak": 8,
+    "backend": "memory",
+    "devicePreset": "iPhone 17 Pro landscape",
+    "networkPreset": "LAN indicator; no manually added impairment during this run. Subsequent Network Simulator inspection showed Current Device with all values zero.",
+    "backgroundRendering": "Most unfocused clients observed at ~15 FPS; foreground ~60 FPS"
+  },
+  "server": [
+    {
+      "seconds": 15.049406700010877,
+      "phase": "Warmup",
+      "incomingActions": 2,
+      "realClients": 8,
+      "metrics": {
+        "send_kbps": {
+          "max": 4.279,
+          "samples": 14,
+          "mean": 2.562,
+          "min": 2.062
+        },
+        "heartbeat_cpu_ms": {
+          "max": 0.233,
+          "samples": 14,
+          "mean": 0.142,
+          "min": 0.036
+        },
+        "tiles": {
+          "max": 0,
+          "samples": 14,
+          "mean": 0,
+          "min": 0
+        },
+        "heartbeat_interval_ms": {
+          "max": 19.048,
+          "samples": 903,
+          "mean": 16.667,
+          "min": 14.782
+        },
+        "receive_kbps": {
+          "max": 0,
+          "samples": 14,
+          "mean": 0,
+          "min": 0
+        },
+        "arenas": {
+          "max": 0,
+          "samples": 14,
+          "mean": 0,
+          "min": 0
+        },
+        "memory_mb": {
+          "max": 1580.414,
+          "samples": 14,
+          "mean": 1579.74,
+          "min": 1579.031
+        },
+        "instances": {
+          "max": 55997,
+          "samples": 14,
+          "mean": 55997,
+          "min": 55997
+        }
+      },
+      "storageRequests": 8,
+      "storageFailures": 0,
+      "backend": "memory",
+      "syntheticProfiles": 0,
+      "loggedAtUTC": "2026-11-04T11:20:11.468Z"
+    },
+    {
+      "seconds": 160.01070650003385,
+      "phase": "Real",
+      "incomingActions": 1223,
+      "realClients": 8,
+      "metrics": {
+        "stream_tick_batch_ms": {
+          "max": 1.357,
+          "samples": 2550,
+          "mean": 0.032,
+          "min": 0.005
+        },
+        "send_kbps": {
+          "max": 11.06,
+          "samples": 158,
+          "mean": 5.184,
+          "min": 2.291
+        },
+        "memory_mb": {
+          "max": 1591.93,
+          "samples": 158,
+          "mean": 1579.749,
+          "min": 1575.879
+        },
+        "heartbeat_interval_ms": {
+          "max": 19.614,
+          "samples": 9601,
+          "mean": 16.666,
+          "min": 13.21
+        },
+        "instances": {
+          "max": 56133,
+          "samples": 158,
+          "mean": 56029.494,
+          "min": 55997
+        },
+        "timing_compensation_ms": {
+          "max": 0.569,
+          "samples": 40,
+          "mean": 0.34,
+          "min": 0.139
+        },
+        "heartbeat_cpu_ms": {
+          "max": 0.305,
+          "samples": 158,
+          "mean": 0.149,
+          "min": 0.026
+        },
+        "timing_score": {
+          "max": 0.995,
+          "samples": 40,
+          "mean": 0.955,
+          "min": 0.889
+        },
+        "arenas": {
+          "max": 8,
+          "samples": 158,
+          "mean": 1.911,
+          "min": 0
+        },
+        "minigame_tick_ms": {
+          "max": 0.205,
+          "samples": 11679,
+          "mean": 0.003,
+          "min": 0
+        },
+        "stream_tick_ms": {
+          "max": 1.098,
+          "samples": 20408,
+          "mean": 0.004,
+          "min": 0
+        },
+        "tiles": {
+          "max": 128,
+          "samples": 158,
+          "mean": 30.582,
+          "min": 0
+        },
+        "receive_kbps": {
+          "max": 0,
+          "samples": 158,
+          "mean": 0,
+          "min": 0
+        }
+      },
+      "storageRequests": 24,
+      "storageFailures": 0,
+      "backend": "memory",
+      "syntheticProfiles": 0,
+      "loggedAtUTC": "2026-11-04T11:20:11.468Z"
+    },
+    {
+      "seconds": 170.00927019998198,
+      "phase": "Mixed",
+      "incomingActions": 1440,
+      "realClients": 8,
+      "metrics": {
+        "stream_tick_batch_ms": {
+          "max": 1.194,
+          "samples": 2774,
+          "mean": 0.055,
+          "min": 0.006
+        },
+        "send_kbps": {
+          "max": 12.048,
+          "samples": 168,
+          "mean": 7.079,
+          "min": 3.951
+        },
+        "memory_mb": {
+          "max": 1585.055,
+          "samples": 168,
+          "mean": 1579.377,
+          "min": 1576.145
+        },
+        "heartbeat_interval_ms": {
+          "max": 46.018,
+          "samples": 10200,
+          "mean": 16.668,
+          "min": 1.001
+        },
+        "instances": {
+          "max": 56293,
+          "samples": 168,
+          "mean": 56081.815,
+          "min": 56021
+        },
+        "timing_compensation_ms": {
+          "max": 0.487,
+          "samples": 66,
+          "mean": 0.139,
+          "min": 0
+        },
+        "heartbeat_cpu_ms": {
+          "max": 0.352,
+          "samples": 168,
+          "mean": 0.132,
+          "min": 0.009
+        },
+        "timing_score": {
+          "max": 0.999,
+          "samples": 66,
+          "mean": 0.962,
+          "min": 0.887
+        },
+        "arenas": {
+          "max": 16,
+          "samples": 168,
+          "mean": 3.577,
+          "min": 0
+        },
+        "minigame_tick_ms": {
+          "max": 0.237,
+          "samples": 25522,
+          "mean": 0.003,
+          "min": 0
+        },
+        "stream_tick_ms": {
+          "max": 0.844,
+          "samples": 43102,
+          "mean": 0.004,
+          "min": 0
+        },
+        "tiles": {
+          "max": 256,
+          "samples": 168,
+          "mean": 57.238,
+          "min": 0
+        },
+        "receive_kbps": {
+          "max": 0,
+          "samples": 168,
+          "mean": 0,
+          "min": 0
+        }
+      },
+      "storageRequests": 64,
+      "storageFailures": 0,
+      "backend": "memory",
+      "syntheticProfiles": 8,
+      "loggedAtUTC": "2026-11-04T11:20:38.800Z"
+    },
+    {
+      "seconds": 35.0145579999662,
+      "phase": "Social",
+      "incomingActions": 632,
+      "realClients": 8,
+      "metrics": {
+        "stream_tick_batch_ms": {
+          "max": 0.648,
+          "samples": 577,
+          "mean": 0.012,
+          "min": 0.001
+        },
+        "tiles": {
+          "max": 16,
+          "samples": 35,
+          "mean": 9.143,
+          "min": 0
+        },
+        "memory_mb": {
+          "max": 1589.207,
+          "samples": 35,
+          "mean": 1586.402,
+          "min": 1582.18
+        },
+        "instances": {
+          "max": 56038,
+          "samples": 35,
+          "mean": 56030.714,
+          "min": 56021
+        },
+        "heartbeat_cpu_ms": {
+          "max": 0.219,
+          "samples": 35,
+          "mean": 0.068,
+          "min": 0.007
+        },
+        "receive_kbps": {
+          "max": 0,
+          "samples": 35,
+          "mean": 0,
+          "min": 0
+        },
+        "heartbeat_interval_ms": {
+          "max": 59.156,
+          "samples": 2099,
+          "mean": 16.681,
+          "min": 8.013
+        },
+        "minigame_tick_ms": {
+          "max": 0.056,
+          "samples": 379,
+          "mean": 0.007,
+          "min": 0.001
+        },
+        "stream_tick_ms": {
+          "max": 0.648,
+          "samples": 577,
+          "mean": 0.012,
+          "min": 0.001
+        },
+        "arenas": {
+          "max": 1,
+          "samples": 35,
+          "mean": 0.571,
+          "min": 0
+        },
+        "send_kbps": {
+          "max": 16.272,
+          "samples": 35,
+          "mean": 8.455,
+          "min": 5.529
+        }
+      },
+      "storageRequests": 16,
+      "storageFailures": 0,
+      "backend": "memory",
+      "syntheticProfiles": 8,
+      "loggedAtUTC": "2026-11-04T11:21:13.828Z"
+    },
+    {
+      "seconds": 10.022635600005742,
+      "phase": "Cooldown",
+      "incomingActions": 2,
+      "realClients": 8,
+      "metrics": {
+        "stream_tick_batch_ms": {
+          "max": 0.013,
+          "samples": 1,
+          "mean": 0.013,
+          "min": 0.013
+        },
+        "tiles": {
+          "max": 0,
+          "samples": 10,
+          "mean": 0,
+          "min": 0
+        },
+        "memory_mb": {
+          "max": 1587.258,
+          "samples": 10,
+          "mean": 1585.819,
+          "min": 1585.625
+        },
+        "instances": {
+          "max": 55997,
+          "samples": 10,
+          "mean": 55997,
+          "min": 55997
+        },
+        "heartbeat_cpu_ms": {
+          "max": 0.152,
+          "samples": 10,
+          "mean": 0.108,
+          "min": 0.064
+        },
+        "receive_kbps": {
+          "max": 0,
+          "samples": 10,
+          "mean": 0,
+          "min": 0
+        },
+        "arenas": {
+          "max": 0,
+          "samples": 10,
+          "mean": 0,
+          "min": 0
+        },
+        "heartbeat_interval_ms": {
+          "max": 49.989,
+          "samples": 600,
+          "mean": 16.723,
+          "min": 14.937
+        },
+        "send_kbps": {
+          "max": 19.373,
+          "samples": 10,
+          "mean": 6.367,
+          "min": 3.939
+        }
+      },
+      "storageRequests": 0,
+      "storageFailures": 0,
+      "backend": "memory",
+      "syntheticProfiles": 8,
+      "loggedAtUTC": "2026-11-04T11:21:23.849Z"
+    }
+  ],
+  "clients": [
+    {
+      "client": 1,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.651,
+              "samples": 15,
+              "mean": 5.22,
+              "min": 2.329
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1643.969,
+              "samples": 15,
+              "mean": 1643.504,
+              "min": 1643.012
+            },
+            "fps_1s": {
+              "max": 15.018,
+              "samples": 15,
+              "mean": 15.001,
+              "min": 14.986
+            },
+            "worst_frame_ms": {
+              "max": 68.619,
+              "samples": 15,
+              "mean": 67.672,
+              "min": 67.12
+            },
+            "send_kbps": {
+              "max": 0.527,
+              "samples": 15,
+              "mean": 0.506,
+              "min": 0.483
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.628Z"
+        },
+        {
+          "received": 876,
+          "firstStartSeconds": 38.962526999996044,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 11.482,
+              "samples": 158,
+              "mean": 5.044,
+              "min": 1.247
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1654.586,
+              "samples": 158,
+              "mean": 1643.66,
+              "min": 1640.164
+            },
+            "fps_1s": {
+              "max": 15.035,
+              "samples": 158,
+              "mean": 15.001,
+              "min": 14.969
+            },
+            "worst_frame_ms": {
+              "max": 72.432,
+              "samples": 158,
+              "mean": 67.842,
+              "min": 67.159
+            },
+            "send_kbps": {
+              "max": 0.97,
+              "samples": 158,
+              "mean": 0.576,
+              "min": 0.415
+            }
+          },
+          "phase": "Real",
+          "sent": 161,
+          "firstRewardSeconds": 42.4621843000059,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.639Z"
+        },
+        {
+          "received": 923,
+          "firstStartSeconds": 38.962526999996044,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 11.71,
+              "samples": 168,
+              "mean": 5.083,
+              "min": 1.246
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1644.57,
+              "samples": 168,
+              "mean": 1643.247,
+              "min": 1641.727
+            },
+            "fps_1s": {
+              "max": 15.03,
+              "samples": 168,
+              "mean": 14.989,
+              "min": 13.78
+            },
+            "worst_frame_ms": {
+              "max": 167.022,
+              "samples": 168,
+              "mean": 69.031,
+              "min": 67.205
+            },
+            "send_kbps": {
+              "max": 0.909,
+              "samples": 168,
+              "mean": 0.575,
+              "min": 0.388
+            }
+          },
+          "phase": "Mixed",
+          "sent": 177,
+          "firstRewardSeconds": 42.4621843000059,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.650Z"
+        },
+        {
+          "received": 277,
+          "firstStartSeconds": 38.962526999996044,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.878,
+              "samples": 35,
+              "mean": 4.723,
+              "min": 2.235
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1645.586,
+              "samples": 35,
+              "mean": 1644.973,
+              "min": 1644.281
+            },
+            "fps_1s": {
+              "max": 15.015,
+              "samples": 35,
+              "mean": 14.972,
+              "min": 13.998
+            },
+            "worst_frame_ms": {
+              "max": 149.136,
+              "samples": 35,
+              "mean": 70.095,
+              "min": 67.066
+            },
+            "send_kbps": {
+              "max": 0.808,
+              "samples": 35,
+              "mean": 0.592,
+              "min": 0.485
+            }
+          },
+          "phase": "Social",
+          "sent": 12,
+          "firstRewardSeconds": 42.4621843000059,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.731Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 38.962526999996044,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.59,
+              "samples": 10,
+              "mean": 5.887,
+              "min": 2.574
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1647.535,
+              "samples": 10,
+              "mean": 1645.968,
+              "min": 1645.738
+            },
+            "fps_1s": {
+              "max": 15.008,
+              "samples": 10,
+              "mean": 14.9,
+              "min": 14.009
+            },
+            "worst_frame_ms": {
+              "max": 131.702,
+              "samples": 10,
+              "mean": 74.043,
+              "min": 67.236
+            },
+            "send_kbps": {
+              "max": 0.606,
+              "samples": 10,
+              "mean": 0.522,
+              "min": 0.467
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 42.4621843000059,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.696Z"
+        }
+      ]
+    },
+    {
+      "client": 2,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 6.927,
+              "samples": 15,
+              "mean": 4.361,
+              "min": 1.625
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1670.227,
+              "samples": 15,
+              "mean": 1669.609,
+              "min": 1667.957
+            },
+            "fps_1s": {
+              "max": 15.013,
+              "samples": 15,
+              "mean": 15.001,
+              "min": 14.982
+            },
+            "worst_frame_ms": {
+              "max": 68.734,
+              "samples": 15,
+              "mean": 67.661,
+              "min": 67.205
+            },
+            "send_kbps": {
+              "max": 0.5,
+              "samples": 15,
+              "mean": 0.432,
+              "min": 0.401
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.607Z"
+        },
+        {
+          "received": 876,
+          "firstStartSeconds": 32.45662470004754,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 10.309,
+              "samples": 158,
+              "mean": 4.415,
+              "min": 1.105
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1680.016,
+              "samples": 158,
+              "mean": 1662.67,
+              "min": 1657.039
+            },
+            "fps_1s": {
+              "max": 15.022,
+              "samples": 158,
+              "mean": 15.001,
+              "min": 14.977
+            },
+            "worst_frame_ms": {
+              "max": 71.252,
+              "samples": 158,
+              "mean": 67.756,
+              "min": 67.129
+            },
+            "send_kbps": {
+              "max": 0.971,
+              "samples": 158,
+              "mean": 0.583,
+              "min": 0.392
+            }
+          },
+          "phase": "Real",
+          "sent": 156,
+          "firstRewardSeconds": 35.60542279999936,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.617Z"
+        },
+        {
+          "received": 923,
+          "firstStartSeconds": 32.45662470004754,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.838,
+              "samples": 168,
+              "mean": 4.026,
+              "min": 1.02
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1659.672,
+              "samples": 168,
+              "mean": 1658.387,
+              "min": 1657.051
+            },
+            "fps_1s": {
+              "max": 15.021,
+              "samples": 168,
+              "mean": 14.968,
+              "min": 11.8
+            },
+            "worst_frame_ms": {
+              "max": 290.446,
+              "samples": 168,
+              "mean": 69.994,
+              "min": 67.134
+            },
+            "send_kbps": {
+              "max": 0.952,
+              "samples": 168,
+              "mean": 0.58,
+              "min": 0.399
+            }
+          },
+          "phase": "Mixed",
+          "sent": 184,
+          "firstRewardSeconds": 35.60542279999936,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.627Z"
+        },
+        {
+          "received": 209,
+          "firstStartSeconds": 32.45662470004754,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.021,
+              "samples": 35,
+              "mean": 4.055,
+              "min": 1.734
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1663.152,
+              "samples": 35,
+              "mean": 1661.372,
+              "min": 1659.473
+            },
+            "fps_1s": {
+              "max": 15.054,
+              "samples": 35,
+              "mean": 14.972,
+              "min": 14.014
+            },
+            "worst_frame_ms": {
+              "max": 155.419,
+              "samples": 35,
+              "mean": 70.548,
+              "min": 67.188
+            },
+            "send_kbps": {
+              "max": 1.646,
+              "samples": 35,
+              "mean": 0.825,
+              "min": 0.532
+            }
+          },
+          "phase": "Social",
+          "sent": 88,
+          "firstRewardSeconds": 35.60542279999936,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.694Z"
+        },
+        {
+          "received": 52,
+          "firstStartSeconds": 32.45662470004754,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 6.385,
+              "samples": 10,
+              "mean": 4.12,
+              "min": 2.481
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1662.836,
+              "samples": 10,
+              "mean": 1662.757,
+              "min": 1662.648
+            },
+            "fps_1s": {
+              "max": 15.012,
+              "samples": 10,
+              "mean": 14.878,
+              "min": 13.777
+            },
+            "worst_frame_ms": {
+              "max": 173.716,
+              "samples": 10,
+              "mean": 78.317,
+              "min": 67.451
+            },
+            "send_kbps": {
+              "max": 0.509,
+              "samples": 10,
+              "mean": 0.431,
+              "min": 0.406
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 35.60542279999936,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.675Z"
+        }
+      ]
+    },
+    {
+      "client": 3,
+      "phases": [
+        {
+          "received": 72,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 7.039,
+              "samples": 14,
+              "mean": 3.263,
+              "min": 0.758
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 14,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1643.563,
+              "samples": 14,
+              "mean": 1626.83,
+              "min": 1589.305
+            },
+            "fps_1s": {
+              "max": 20.316,
+              "samples": 14,
+              "mean": 15.368,
+              "min": 14.806
+            },
+            "worst_frame_ms": {
+              "max": 89.094,
+              "samples": 14,
+              "mean": 70.179,
+              "min": 67.227
+            },
+            "send_kbps": {
+              "max": 1.107,
+              "samples": 14,
+              "mean": 0.551,
+              "min": 0.396
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.462Z"
+        },
+        {
+          "received": 877,
+          "firstStartSeconds": 16.171964399982244,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 11.663,
+              "samples": 158,
+              "mean": 3.346,
+              "min": 0.651
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1628.43,
+              "samples": 158,
+              "mean": 1613.7,
+              "min": 1609.195
+            },
+            "fps_1s": {
+              "max": 15.022,
+              "samples": 158,
+              "mean": 15.001,
+              "min": 14.977
+            },
+            "worst_frame_ms": {
+              "max": 70.003,
+              "samples": 158,
+              "mean": 67.738,
+              "min": 67.067
+            },
+            "send_kbps": {
+              "max": 0.924,
+              "samples": 158,
+              "mean": 0.578,
+              "min": 0.409
+            }
+          },
+          "phase": "Real",
+          "sent": 146,
+          "firstRewardSeconds": 19.437304400024004,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.474Z"
+        },
+        {
+          "received": 923,
+          "firstStartSeconds": 16.171964399982244,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 7.535,
+              "samples": 168,
+              "mean": 3.435,
+              "min": 0.498
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1614.367,
+              "samples": 168,
+              "mean": 1611.996,
+              "min": 1609.801
+            },
+            "fps_1s": {
+              "max": 15.018,
+              "samples": 168,
+              "mean": 14.967,
+              "min": 11.799
+            },
+            "worst_frame_ms": {
+              "max": 282.568,
+              "samples": 168,
+              "mean": 70.073,
+              "min": 67.129
+            },
+            "send_kbps": {
+              "max": 0.939,
+              "samples": 168,
+              "mean": 0.587,
+              "min": 0.417
+            }
+          },
+          "phase": "Mixed",
+          "sent": 178,
+          "firstRewardSeconds": 19.437304400024004,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.481Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 16.171964399982244,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 6.999,
+              "samples": 35,
+              "mean": 3.185,
+              "min": 0.814
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1617.809,
+              "samples": 35,
+              "mean": 1616.251,
+              "min": 1614.379
+            },
+            "fps_1s": {
+              "max": 15.026,
+              "samples": 35,
+              "mean": 14.972,
+              "min": 13.998
+            },
+            "worst_frame_ms": {
+              "max": 153.547,
+              "samples": 35,
+              "mean": 70.471,
+              "min": 67.085
+            },
+            "send_kbps": {
+              "max": 1.588,
+              "samples": 35,
+              "mean": 0.793,
+              "min": 0.53
+            }
+          },
+          "phase": "Social",
+          "sent": 93,
+          "firstRewardSeconds": 19.437304400024004,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.580Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 16.171964399982244,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 5.187,
+              "samples": 10,
+              "mean": 3.22,
+              "min": 0.891
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1618.008,
+              "samples": 10,
+              "mean": 1617.883,
+              "min": 1617.762
+            },
+            "fps_1s": {
+              "max": 15.012,
+              "samples": 10,
+              "mean": 14.901,
+              "min": 14.006
+            },
+            "worst_frame_ms": {
+              "max": 132.784,
+              "samples": 10,
+              "mean": 74.061,
+              "min": 67.192
+            },
+            "send_kbps": {
+              "max": 0.645,
+              "samples": 10,
+              "mean": 0.492,
+              "min": 0.452
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 19.437304400024004,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.529Z"
+        }
+      ]
+    },
+    {
+      "client": 4,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 7.055,
+              "samples": 14,
+              "mean": 3.856,
+              "min": 1.126
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 14,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1659.32,
+              "samples": 14,
+              "mean": 1657.963,
+              "min": 1657.031
+            },
+            "fps_1s": {
+              "max": 15.021,
+              "samples": 14,
+              "mean": 15.001,
+              "min": 14.992
+            },
+            "worst_frame_ms": {
+              "max": 81.168,
+              "samples": 14,
+              "mean": 68.668,
+              "min": 67.112
+            },
+            "send_kbps": {
+              "max": 0.479,
+              "samples": 14,
+              "mean": 0.445,
+              "min": 0.419
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.472Z"
+        },
+        {
+          "received": 875,
+          "firstStartSeconds": 30.034212699974887,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 12.323,
+              "samples": 159,
+              "mean": 5.277,
+              "min": 1.631
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 159,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1667.41,
+              "samples": 159,
+              "mean": 1652.709,
+              "min": 1648.535
+            },
+            "fps_1s": {
+              "max": 15.047,
+              "samples": 159,
+              "mean": 15.001,
+              "min": 14.947
+            },
+            "worst_frame_ms": {
+              "max": 70.275,
+              "samples": 159,
+              "mean": 67.648,
+              "min": 67.107
+            },
+            "send_kbps": {
+              "max": 0.901,
+              "samples": 159,
+              "mean": 0.565,
+              "min": 0.381
+            }
+          },
+          "phase": "Real",
+          "sent": 151,
+          "firstRewardSeconds": 33.48364579997724,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.484Z"
+        },
+        {
+          "received": 923,
+          "firstStartSeconds": 30.034212699974887,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 10.353,
+              "samples": 168,
+              "mean": 4.828,
+              "min": 0.964
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1651.281,
+              "samples": 168,
+              "mean": 1650.101,
+              "min": 1648.797
+            },
+            "fps_1s": {
+              "max": 15.04,
+              "samples": 168,
+              "mean": 14.987,
+              "min": 13.438
+            },
+            "worst_frame_ms": {
+              "max": 184.168,
+              "samples": 168,
+              "mean": 68.785,
+              "min": 67.021
+            },
+            "send_kbps": {
+              "max": 0.958,
+              "samples": 168,
+              "mean": 0.588,
+              "min": 0.379
+            }
+          },
+          "phase": "Mixed",
+          "sent": 181,
+          "firstRewardSeconds": 33.48364579997724,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.492Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 30.034212699974887,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 7.545,
+              "samples": 34,
+              "mean": 4.179,
+              "min": 1.139
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 34,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1654.988,
+              "samples": 34,
+              "mean": 1653.368,
+              "min": 1651.789
+            },
+            "fps_1s": {
+              "max": 15.015,
+              "samples": 34,
+              "mean": 14.971,
+              "min": 13.983
+            },
+            "worst_frame_ms": {
+              "max": 139.429,
+              "samples": 34,
+              "mean": 69.992,
+              "min": 67.129
+            },
+            "send_kbps": {
+              "max": 1.537,
+              "samples": 34,
+              "mean": 0.913,
+              "min": 0.505
+            }
+          },
+          "phase": "Social",
+          "sent": 88,
+          "firstRewardSeconds": 33.48364579997724,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.559Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 30.034212699974887,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 7.126,
+              "samples": 10,
+              "mean": 4.86,
+              "min": 1.92
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1655.133,
+              "samples": 10,
+              "mean": 1654.72,
+              "min": 1654.637
+            },
+            "fps_1s": {
+              "max": 15.009,
+              "samples": 10,
+              "mean": 14.892,
+              "min": 13.954
+            },
+            "worst_frame_ms": {
+              "max": 155.26,
+              "samples": 10,
+              "mean": 76.516,
+              "min": 67.211
+            },
+            "send_kbps": {
+              "max": 0.83,
+              "samples": 10,
+              "mean": 0.466,
+              "min": 0.397
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 33.48364579997724,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.557Z"
+        }
+      ]
+    },
+    {
+      "client": 5,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 12.888,
+              "samples": 15,
+              "mean": 6.274,
+              "min": 3.366
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1702.574,
+              "samples": 15,
+              "mean": 1676.689,
+              "min": 1654.813
+            },
+            "fps_1s": {
+              "max": 15.023,
+              "samples": 15,
+              "mean": 14.921,
+              "min": 13.764
+            },
+            "worst_frame_ms": {
+              "max": 151.031,
+              "samples": 15,
+              "mean": 74.569,
+              "min": 67.315
+            },
+            "send_kbps": {
+              "max": 0.528,
+              "samples": 15,
+              "mean": 0.461,
+              "min": 0.414
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.475Z"
+        },
+        {
+          "received": 877,
+          "firstStartSeconds": 22.610403499973472,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 12.459,
+              "samples": 158,
+              "mean": 5.954,
+              "min": 1.863
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1665.727,
+              "samples": 158,
+              "mean": 1652.422,
+              "min": 1648.824
+            },
+            "fps_1s": {
+              "max": 15.042,
+              "samples": 158,
+              "mean": 15.001,
+              "min": 14.958
+            },
+            "worst_frame_ms": {
+              "max": 70.57,
+              "samples": 158,
+              "mean": 67.665,
+              "min": 67.019
+            },
+            "send_kbps": {
+              "max": 0.958,
+              "samples": 158,
+              "mean": 0.568,
+              "min": 0.407
+            }
+          },
+          "phase": "Real",
+          "sent": 155,
+          "firstRewardSeconds": 26.226829699997324,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.485Z"
+        },
+        {
+          "received": 922,
+          "firstStartSeconds": 22.610403499973472,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 12.621,
+              "samples": 168,
+              "mean": 6.144,
+              "min": 1.568
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1651.176,
+              "samples": 168,
+              "mean": 1650.254,
+              "min": 1649.172
+            },
+            "fps_1s": {
+              "max": 15.028,
+              "samples": 168,
+              "mean": 14.972,
+              "min": 12.426
+            },
+            "worst_frame_ms": {
+              "max": 234.844,
+              "samples": 168,
+              "mean": 69.749,
+              "min": 67.023
+            },
+            "send_kbps": {
+              "max": 0.988,
+              "samples": 168,
+              "mean": 0.588,
+              "min": 0.383
+            }
+          },
+          "phase": "Mixed",
+          "sent": 185,
+          "firstRewardSeconds": 26.226829699997324,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.495Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 22.610403499973472,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.218,
+              "samples": 35,
+              "mean": 5.801,
+              "min": 2.244
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1655.875,
+              "samples": 35,
+              "mean": 1653.564,
+              "min": 1650.906
+            },
+            "fps_1s": {
+              "max": 15.019,
+              "samples": 35,
+              "mean": 14.974,
+              "min": 14.056
+            },
+            "worst_frame_ms": {
+              "max": 133.529,
+              "samples": 35,
+              "mean": 69.755,
+              "min": 67.19
+            },
+            "send_kbps": {
+              "max": 1.908,
+              "samples": 35,
+              "mean": 0.902,
+              "min": 0.555
+            }
+          },
+          "phase": "Social",
+          "sent": 89,
+          "firstRewardSeconds": 26.226829699997324,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.547Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 22.610403499973472,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 10.267,
+              "samples": 10,
+              "mean": 5.457,
+              "min": 2.335
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1655.43,
+              "samples": 10,
+              "mean": 1655.295,
+              "min": 1655.148
+            },
+            "fps_1s": {
+              "max": 15.01,
+              "samples": 10,
+              "mean": 14.951,
+              "min": 14.513
+            },
+            "worst_frame_ms": {
+              "max": 127.162,
+              "samples": 10,
+              "mean": 73.619,
+              "min": 67.124
+            },
+            "send_kbps": {
+              "max": 0.725,
+              "samples": 10,
+              "mean": 0.577,
+              "min": 0.545
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 26.226829699997324,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.544Z"
+        }
+      ]
+    },
+    {
+      "client": 6,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.879,
+              "samples": 15,
+              "mean": 6.969,
+              "min": 1.846
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1706.086,
+              "samples": 15,
+              "mean": 1682.434,
+              "min": 1657.375
+            },
+            "fps_1s": {
+              "max": 15.023,
+              "samples": 15,
+              "mean": 14.919,
+              "min": 13.775
+            },
+            "worst_frame_ms": {
+              "max": 164.543,
+              "samples": 15,
+              "mean": 74.252,
+              "min": 67.146
+            },
+            "send_kbps": {
+              "max": 0.548,
+              "samples": 15,
+              "mean": 0.47,
+              "min": 0.436
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.225Z"
+        },
+        {
+          "received": 877,
+          "firstStartSeconds": 21.194813399983104,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 11.675,
+              "samples": 158,
+              "mean": 5.485,
+              "min": 1.707
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1667.594,
+              "samples": 158,
+              "mean": 1658.204,
+              "min": 1648.098
+            },
+            "fps_1s": {
+              "max": 15.028,
+              "samples": 158,
+              "mean": 15,
+              "min": 14.961
+            },
+            "worst_frame_ms": {
+              "max": 69.326,
+              "samples": 158,
+              "mean": 67.685,
+              "min": 67.015
+            },
+            "send_kbps": {
+              "max": 0.961,
+              "samples": 158,
+              "mean": 0.569,
+              "min": 0.395
+            }
+          },
+          "phase": "Real",
+          "sent": 149,
+          "firstRewardSeconds": 24.593739599979017,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.254Z"
+        },
+        {
+          "received": 923,
+          "firstStartSeconds": 21.194813399983104,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 12.748,
+              "samples": 168,
+              "mean": 5.758,
+              "min": 1.508
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1650.191,
+              "samples": 168,
+              "mean": 1649.305,
+              "min": 1648.332
+            },
+            "fps_1s": {
+              "max": 15.025,
+              "samples": 168,
+              "mean": 14.99,
+              "min": 13.852
+            },
+            "worst_frame_ms": {
+              "max": 143.474,
+              "samples": 168,
+              "mean": 68.73,
+              "min": 67.128
+            },
+            "send_kbps": {
+              "max": 0.901,
+              "samples": 168,
+              "mean": 0.588,
+              "min": 0.41
+            }
+          },
+          "phase": "Mixed",
+          "sent": 179,
+          "firstRewardSeconds": 24.593739599979017,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.263Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 21.194813399983104,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.956,
+              "samples": 35,
+              "mean": 5.92,
+              "min": 1.666
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1654.305,
+              "samples": 35,
+              "mean": 1652.2,
+              "min": 1649.723
+            },
+            "fps_1s": {
+              "max": 15.196,
+              "samples": 35,
+              "mean": 14.975,
+              "min": 13.883
+            },
+            "worst_frame_ms": {
+              "max": 147.053,
+              "samples": 35,
+              "mean": 70.439,
+              "min": 67.09
+            },
+            "send_kbps": {
+              "max": 1.439,
+              "samples": 35,
+              "mean": 0.795,
+              "min": 0.488
+            }
+          },
+          "phase": "Social",
+          "sent": 90,
+          "firstRewardSeconds": 24.593739599979017,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.313Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 21.194813399983104,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.745,
+              "samples": 10,
+              "mean": 5.159,
+              "min": 2.473
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1654.398,
+              "samples": 10,
+              "mean": 1654.015,
+              "min": 1653.773
+            },
+            "fps_1s": {
+              "max": 15.018,
+              "samples": 10,
+              "mean": 14.924,
+              "min": 14.242
+            },
+            "worst_frame_ms": {
+              "max": 122.034,
+              "samples": 10,
+              "mean": 73.086,
+              "min": 67.311
+            },
+            "send_kbps": {
+              "max": 0.654,
+              "samples": 10,
+              "mean": 0.511,
+              "min": 0.469
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 24.593739599979017,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.312Z"
+        }
+      ]
+    },
+    {
+      "client": 7,
+      "phases": [
+        {
+          "received": 77,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.464,
+              "samples": 15,
+              "mean": 4.564,
+              "min": 1.658
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1743.43,
+              "samples": 15,
+              "mean": 1714.149,
+              "min": 1668.953
+            },
+            "fps_1s": {
+              "max": 15.034,
+              "samples": 15,
+              "mean": 14.366,
+              "min": 9.046
+            },
+            "worst_frame_ms": {
+              "max": 232.042,
+              "samples": 15,
+              "mean": 93.279,
+              "min": 67.069
+            },
+            "send_kbps": {
+              "max": 0.569,
+              "samples": 15,
+              "mean": 0.478,
+              "min": 0.318
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.771Z"
+        },
+        {
+          "received": 876,
+          "firstStartSeconds": 18.541298900032416,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 13.792,
+              "samples": 158,
+              "mean": 4.716,
+              "min": 0.883
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1676.488,
+              "samples": 158,
+              "mean": 1668.441,
+              "min": 1665.789
+            },
+            "fps_1s": {
+              "max": 15.027,
+              "samples": 158,
+              "mean": 15.001,
+              "min": 14.967
+            },
+            "worst_frame_ms": {
+              "max": 71.316,
+              "samples": 158,
+              "mean": 67.878,
+              "min": 67.206
+            },
+            "send_kbps": {
+              "max": 0.995,
+              "samples": 158,
+              "mean": 0.564,
+              "min": 0.405
+            }
+          },
+          "phase": "Real",
+          "sent": 151,
+          "firstRewardSeconds": 22.023755300033372,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.765Z"
+        },
+        {
+          "received": 922,
+          "firstStartSeconds": 18.541298900032416,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.726,
+              "samples": 168,
+              "mean": 4.729,
+              "min": 1.095
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 168,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1667.891,
+              "samples": 168,
+              "mean": 1667.049,
+              "min": 1665.914
+            },
+            "fps_1s": {
+              "max": 15.044,
+              "samples": 168,
+              "mean": 14.978,
+              "min": 12.202
+            },
+            "worst_frame_ms": {
+              "max": 253.32,
+              "samples": 168,
+              "mean": 69.48,
+              "min": 67.201
+            },
+            "send_kbps": {
+              "max": 0.943,
+              "samples": 168,
+              "mean": 0.59,
+              "min": 0.414
+            }
+          },
+          "phase": "Mixed",
+          "sent": 176,
+          "firstRewardSeconds": 22.023755300033372,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.789Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 18.541298900032416,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 9.307,
+              "samples": 35,
+              "mean": 5.179,
+              "min": 1.288
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 35,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1672.98,
+              "samples": 35,
+              "mean": 1670.638,
+              "min": 1667.961
+            },
+            "fps_1s": {
+              "max": 15.023,
+              "samples": 35,
+              "mean": 14.979,
+              "min": 14.226
+            },
+            "worst_frame_ms": {
+              "max": 116.659,
+              "samples": 35,
+              "mean": 69.545,
+              "min": 67.306
+            },
+            "send_kbps": {
+              "max": 1.974,
+              "samples": 35,
+              "mean": 0.889,
+              "min": 0.45
+            }
+          },
+          "phase": "Social",
+          "sent": 85,
+          "firstRewardSeconds": 22.023755300033372,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.872Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 18.541298900032416,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.665,
+              "samples": 10,
+              "mean": 5.517,
+              "min": 3.074
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1672.66,
+              "samples": 10,
+              "mean": 1672.647,
+              "min": 1672.633
+            },
+            "fps_1s": {
+              "max": 15.016,
+              "samples": 10,
+              "mean": 14.924,
+              "min": 14.237
+            },
+            "worst_frame_ms": {
+              "max": 140.722,
+              "samples": 10,
+              "mean": 74.856,
+              "min": 67.122
+            },
+            "send_kbps": {
+              "max": 0.728,
+              "samples": 10,
+              "mean": 0.51,
+              "min": 0.451
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 22.023755300033372,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.822Z"
+        }
+      ]
+    },
+    {
+      "client": 8,
+      "phases": [
+        {
+          "received": 78,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 6.835,
+              "samples": 15,
+              "mean": 4.932,
+              "min": 2.526
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 15,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1696.656,
+              "samples": 15,
+              "mean": 1661.815,
+              "min": 1648.289
+            },
+            "fps_1s": {
+              "max": 60.065,
+              "samples": 15,
+              "mean": 59.672,
+              "min": 55.11
+            },
+            "worst_frame_ms": {
+              "max": 109.115,
+              "samples": 15,
+              "mean": 24.449,
+              "min": 17.628
+            },
+            "send_kbps": {
+              "max": 0.59,
+              "samples": 15,
+              "mean": 0.526,
+              "min": 0.492
+            }
+          },
+          "phase": "Warmup",
+          "sent": 0,
+          "reports": 0,
+          "loggedAtUTC": "2026-11-04T11:15:09.333Z"
+        },
+        {
+          "received": 877,
+          "firstStartSeconds": 25.588165699969977,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 11.947,
+              "samples": 158,
+              "mean": 5.14,
+              "min": 1.323
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 158,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1667.461,
+              "samples": 158,
+              "mean": 1655.121,
+              "min": 1642.609
+            },
+            "fps_1s": {
+              "max": 60.136,
+              "samples": 158,
+              "mean": 60.002,
+              "min": 59.872
+            },
+            "worst_frame_ms": {
+              "max": 26.3,
+              "samples": 158,
+              "mean": 18.325,
+              "min": 17.419
+            },
+            "send_kbps": {
+              "max": 0.972,
+              "samples": 158,
+              "mean": 0.567,
+              "min": 0.389
+            }
+          },
+          "phase": "Real",
+          "sent": 154,
+          "firstRewardSeconds": 28.85397669998929,
+          "reports": 1,
+          "loggedAtUTC": "2026-11-04T11:17:49.346Z"
+        },
+        {
+          "received": 925,
+          "firstStartSeconds": 25.588165699969977,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 13.075,
+              "samples": 169,
+              "mean": 5.225,
+              "min": 1.541
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 169,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1647.164,
+              "samples": 169,
+              "mean": 1645.571,
+              "min": 1642.965
+            },
+            "fps_1s": {
+              "max": 60.098,
+              "samples": 169,
+              "mean": 46.096,
+              "min": 12.993
+            },
+            "worst_frame_ms": {
+              "max": 200.147,
+              "samples": 169,
+              "mean": 35.071,
+              "min": 17.461
+            },
+            "send_kbps": {
+              "max": 0.944,
+              "samples": 169,
+              "mean": 0.577,
+              "min": 0.386
+            }
+          },
+          "phase": "Mixed",
+          "sent": 180,
+          "firstRewardSeconds": 28.85397669998929,
+          "reports": 2,
+          "loggedAtUTC": "2026-11-04T11:20:39.353Z"
+        },
+        {
+          "received": 210,
+          "firstStartSeconds": 25.588165699969977,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 8.974,
+              "samples": 34,
+              "mean": 5.056,
+              "min": 1.72
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 34,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1652.602,
+              "samples": 34,
+              "mean": 1649.807,
+              "min": 1647.277
+            },
+            "fps_1s": {
+              "max": 15.03,
+              "samples": 34,
+              "mean": 14.971,
+              "min": 13.982
+            },
+            "worst_frame_ms": {
+              "max": 154.326,
+              "samples": 34,
+              "mean": 71.183,
+              "min": 67.384
+            },
+            "send_kbps": {
+              "max": 1.903,
+              "samples": 34,
+              "mean": 0.926,
+              "min": 0.528
+            }
+          },
+          "phase": "Social",
+          "sent": 89,
+          "firstRewardSeconds": 28.85397669998929,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:14.422Z"
+        },
+        {
+          "received": 51,
+          "firstStartSeconds": 25.588165699969977,
+          "metrics": {
+            "ping_rtt_ms": {
+              "max": 5.011,
+              "samples": 10,
+              "mean": 3.524,
+              "min": 1.954
+            },
+            "receive_kbps": {
+              "max": 0,
+              "samples": 10,
+              "mean": 0,
+              "min": 0
+            },
+            "memory_mb": {
+              "max": 1652.867,
+              "samples": 10,
+              "mean": 1652.505,
+              "min": 1652.266
+            },
+            "fps_1s": {
+              "max": 60.085,
+              "samples": 10,
+              "mean": 55.911,
+              "min": 19.046
+            },
+            "worst_frame_ms": {
+              "max": 124.579,
+              "samples": 10,
+              "mean": 29.001,
+              "min": 18.169
+            },
+            "send_kbps": {
+              "max": 0.695,
+              "samples": 10,
+              "mean": 0.541,
+              "min": 0.501
+            }
+          },
+          "phase": "Cooldown",
+          "sent": 0,
+          "firstRewardSeconds": 28.85397669998929,
+          "reports": 3,
+          "loggedAtUTC": "2026-11-04T11:21:24.402Z"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "realClients": 8,
+    "tiles": 0,
+    "deathCleanup": true,
+    "arenas": 0,
+    "profiles": 8
+  },
+  "allPassed": true,
+  "parseWarnings": [],
+  "notes": [
+    "Server long messages recovered intact via LogService:GetLogHistory/MessageOut and emitted in 650-character chunks. Gameplay was not changed. Subsequent harness logs chunk automatically.",
+    "Stats.DataReceiveKbps returned zero despite actual incoming RemoteEvents: unavailable/uninformative in this local test, not proof of zero network traffic.",
+    "Eight real connections plus eight server-only synthetic actors do not certify 16 real clients."
+  ]
+}

@@ -1,0 +1,4 @@
+2026-11-04T11:28:21.312Z,14.312156,8820,6,Info [FLog::CreatorOutput] QA PASS spawn and forged remote rejection
+2026-11-04T11:29:51.425Z,104.425247,6ca0,6,Info [FLog::CreatorOutput] QA PASS three games, recording, visit, vote, reactions and capped social rewards
+2026-11-04T11:29:54.441Z,107.441269,8820,6,Info [FLog::CreatorOutput] QA PASS three visible upgrade paths and profile save/reacquire round-trip
+2026-11-04T11:29:54.441Z,107.441269,8820,6,Info [FLog::CreatorOutput] QA ALL PASSED (two real Studio clients, memory backend)

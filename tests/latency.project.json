@@ -1,0 +1,68 @@
+{
+  "name": "StreamerLife-Latency",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "../src/shared"
+      },
+      "M4": {
+        "Driver": {
+          "$path": "m4/Driver.luau"
+        },
+        "Metrics": {
+          "$path": "m4/Metrics.luau"
+        },
+        "$className": "Folder"
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "../src/server"
+      },
+      "QARunner": {
+        "$path": "m4/Latency.server.luau"
+      }
+    },
+    "StarterPlayer": {
+      "$properties": {
+        "CameraMaxZoomDistance": 60,
+        "CameraMinZoomDistance": 8
+      },
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "../src/client"
+        },
+        "QABot": {
+          "$path": "m4/Bot.client.luau"
+        }
+      }
+    },
+    "Workspace": {
+      "$properties": {
+        "Gravity": 196.2,
+        "StreamingEnabled": false
+      },
+      "$attributes": {
+        "M4Clients": 1
+      }
+    },
+    "Lighting": {
+      "$properties": {
+        "Technology": "ShadowMap",
+        "ClockTime": 17.5,
+        "Brightness": 2,
+        "Ambient": [
+          0.35,
+          0.35,
+          0.45
+        ],
+        "OutdoorAmbient": [
+          0.55,
+          0.55,
+          0.65
+        ]
+      }
+    }
+  }
+}

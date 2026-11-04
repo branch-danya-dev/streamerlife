@@ -1,0 +1,97 @@
+PASS fresh player can progress without visitors
+PASS insufficient purchase is atomic
+PASS invalid category and max level cannot spend
+PASS three categories have finite reachable upgrade prices
+PASS NaN infinity negative values never enter currency
+PASS malformed persisted fields normalize to bounded schema
+PASS reward clamps score and combo
+PASS donation report is included in money, not paid twice
+PASS upgrade effects increase their intended rewards
+PASS all camera probabilities sum to 100 and stay positive
+PASS popularity boundaries select correct categories
+PASS exhaustive stratified rolls reproduce configured weights
+PASS recording library is bounded and trophy never downgrades
+PASS offline income pays only elapsed time once
+PASS eight hour cap survives long absences and reconnects
+PASS clock rollback cannot replay paid time
+PASS fractional income is independent of reconnect frequency
+PASS new videos cannot earn before creation
+PASS no recordings means no offline farm
+PASS social rewards cap persists across normalization and clock rollback
+PASS timing uses bounded server-time accuracy
+PASS tile moves cannot wrap across rows or leave arena
+PASS invalid remote number shapes are rejected
+PASS one ballot per visitor and only offered choices
+PASS ties use the deterministic rotation
+PASS rate limit rejects replay and backwards clocks
+PASS lease acquisition is exclusive between servers
+PASS lost acquisition response retries without duplicating offline award
+PASS expired lease takeover fences old writes
+PASS writer cannot revive an expired lease
+PASS out-of-order revisions cannot overwrite new progress
+PASS release retry after a lost response is idempotent
+PASS old release retry cannot overwrite next session
+PASS future or invalid schema fails closed
+PASS UpdateAsync callbacks do not mutate their input
+35 tests passed
+PASS failed reads never create or overwrite an existing profile
+PASS load recovers after throttling; callback retries pay offline once
+PASS lost acquisition response reuses token and arrival award
+PASS two servers racing delayed acquisition grant only one lease
+PASS duplicate load on the same server never creates a second token
+PASS autosave failure preserves live progress and a later save recovers
+PASS serialized exit waits for autosave then captures latest progress
+PASS failed release cannot unlock or silently save an empty profile
+PASS stale writer after expiry cannot overwrite a new server
+PASS shutdown waits for in-flight acquisition and releases its lease
+PASS shutdown has a bounded wait when the service hangs
+PASS disconnect during acquisition releases without exposing a profile
+PASS repeated reconnect at the same time cannot repeat offline payout
+13 persistence fault/race tests passed
+PASS replayed purchase cannot buy the next level
+one_way_ms,old_center_score,compensated_center_score
+0,1.0000,1.0000
+25,0.8512,1.0000
+50,0.7024,1.0000
+100,0.4048,1.0000
+150,0.1071,1.0000
+200,0.0000,1.0000
+250,0.0000,1.0000
+PASS server-measured compensation is finite and capped; misses still miss
+3 latency/purchase regression checks passed (deterministic model, not live network)
+Compiled 0 KLOC into 17 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 9 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 9 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 8 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 6 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 3 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 2 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 2 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 5 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 6 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 4 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 14 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 12 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 3 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 2 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 2 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 1 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 8 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 3 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Compiled 0 KLOC into 4 KB bytecode (read 0.00s, parse 0.00s, compile 0.00s)
+Building project 'StreamerLife'
+Built project to StreamerLife.rbxlx
+Building project 'StreamerLife-QA'
+Built project to StreamerLife-QA.rbxlx
+Building project 'StreamerLife-M4'
+Built project to StreamerLife-M4.rbxlx
+Building project 'StreamerLife-Latency'
+Built project to StreamerLife-Latency.rbxlx
+Building project 'StreamerLife-Manual'
+Built project to StreamerLife-Manual.rbxlx
