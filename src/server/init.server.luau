@@ -128,12 +128,15 @@ function handlers.Buy(player, data)
 	if type(data.category) ~= "string" or not Config.Costs[data.category] then
 		return
 	end
+	if not Rules.integer(data.expectedLevel, 0, #Config.Costs[data.category] - 1) then
+		return
+	end
 	if Streams.active[player] then
 		toast(player, "Busy")
 		return
 	end
 	local p = Store.get(player)
-	if p and Domain.buy(p, data.category) then
+	if p and Domain.buy(p, data.category, data.expectedLevel) then
 		City.updateEquipment(player, p)
 		toast(player, "Bought")
 	else

@@ -14,6 +14,7 @@ local action, event = remote:WaitForChild("Action"), remote:WaitForChild("Event"
 local state, directory, boardKey, visuals = nil, {}, nil, {}
 local savedCameraType
 local lastPanelSignature
+local stoppedId, stoppedAt
 
 local function send(verb, data)
 	action:FireServer(verb, data or {})
@@ -21,6 +22,16 @@ end
 local function input(verb, value)
 	local c = state and state.session and state.session.challenge
 	if c and not state.watching and not UI.overlay.Visible then
+		local now = workspace:GetServerTimeNow()
+		if now < c.startsAt or now >= c.endsAt then
+			return
+		end
+		if verb == "Stop" then
+			if stoppedId == c.id then
+				return
+			end
+			stoppedId, stoppedAt = c.id, now
+		end
 		send("Input", { id = c.id, verb = verb, value = value })
 	end
 end
@@ -72,7 +83,7 @@ renderPanel = function(kind)
 						cost
 					),
 					function()
-						send("Buy", { category = category })
+						send("Buy", { category = category, expectedLevel = p.upgrades[category] })
 					end,
 					if p.money >= cost then UI.colors.mint else nil
 				)
@@ -461,7 +472,8 @@ RunService.RenderStepped:Connect(function()
 	UI.title.Text = string.format(Strings.ChallengeTime, Strings[c.kind], math.max(0, c.endsAt - now))
 	UI.help.Text = if now < c.startsAt then Strings.Waiting else Strings[c.kind .. "Help"]
 	if c.kind == "Timing" and visuals.pointer then
-		visuals.pointer.Position = UDim2.new(Rules.slider(now - c.startsAt), -3, 0.1, 0)
+		local pointerTime = if stoppedId == c.id then stoppedAt else now
+		visuals.pointer.Position = UDim2.new(Rules.slider(pointerTime - c.startsAt), -3, 0.1, 0)
 	elseif c.kind == "Rain" and visuals.items then
 		for index, item in ipairs(c.items) do
 			local fraction = (now - (item.at - 2)) / 2

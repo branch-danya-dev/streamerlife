@@ -25,6 +25,7 @@ function Minigames.begin(player, kind, now)
 	}
 	if kind == "Timing" then
 		c.center, c.width = rng:NextNumber(0.25, 0.75), 0.28
+		c.inputDelay = Rules.inputDelay(player:GetNetworkPing())
 	elseif kind == "Rain" then
 		c.lane, c.points, c.possible, c.items = 2, 0, 0, {}
 		for i = 1, 10 do
@@ -72,14 +73,15 @@ function Minigames.begin(player, kind, now)
 end
 
 function Minigames.input(c, verb, value, now)
-	if c.score ~= nil or now < c.startsAt or now >= c.endsAt then
+	local scoredAt = now - (c.inputDelay or 0)
+	if c.score ~= nil or scoredAt < c.startsAt or scoredAt >= c.endsAt then
 		return
 	end
 	if not Rules.allowed(c.lastInput, now, if c.kind == "Fall" then 0.18 else 0.1) then
 		return
 	end
 	if c.kind == "Timing" and verb == "Stop" then
-		c.score = Rules.timing(now - c.startsAt, c.center, c.width)
+		c.score = Rules.timing(scoredAt - c.startsAt, c.center, c.width)
 	elseif c.kind == "Rain" and verb == "Lane" and Rules.integer(value, 1, 4) then
 		c.lane = value
 	elseif c.kind == "Fall" and verb == "Move" and type(value) == "string" then
@@ -153,7 +155,7 @@ function Minigames.tick(c, now)
 			end
 		end
 	end
-	if now >= c.endsAt then
+	if now >= c.endsAt + (c.inputDelay or 0) then
 		return if c.kind == "Rain"
 			then math.clamp(c.points / c.possible, 0, 1)
 			elseif c.kind == "Fall" then 1

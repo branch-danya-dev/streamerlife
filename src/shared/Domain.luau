@@ -90,7 +90,10 @@ return function(Config)
 		local prices = Config.Costs[category]
 		return if prices then prices[p.upgrades[category] + 1] else nil
 	end
-	function Domain.buy(p, category)
+	function Domain.buy(p, category, expectedLevel)
+		if expectedLevel ~= nil and p.upgrades[category] ~= expectedLevel then
+			return false
+		end
 		local cost = Domain.price(p, category)
 		if not cost or p.money < cost then
 			return false

@@ -92,7 +92,7 @@ while workspace:GetAttribute("QAPhase") ~= "Done" do
 	elseif nextPhase == "Buy" and isHost and not bought then
 		bought = true
 		for _, category in ipairs({ "PC", "Microphone", "Camera" }) do
-			send("Buy", { category = category })
+			send("Buy", { category = category, expectedLevel = 0 })
 			task.wait(0.4)
 		end
 	end

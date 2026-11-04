@@ -21,9 +21,12 @@ jobs:
           chmod +x .tools/*
           echo "$GITHUB_WORKSPACE/.tools" >> "$GITHUB_PATH"
       - name: Test pure gameplay and persistence logic
-        run: luau tests/domain.spec.luau
+        run: |
+          luau tests/domain.spec.luau
+          luau tests/persistence.spec.luau
+          luau tests/latency.spec.luau
       - name: Analyze portable modules
-        run: luau-analyze src/shared tests/domain.spec.luau
+        run: luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau
       - name: Formatting and compilation
         run: |
           stylua --check src tests
@@ -33,6 +36,7 @@ jobs:
           mkdir -p build
           rojo build default.project.json -o build/StreamerLife.rbxlx
           rojo build tests/studio.project.json -o build/StreamerLife-QA.rbxlx
+          rojo build tests/m4.project.json -o build/StreamerLife-M4.rbxlx
       - uses: actions/upload-artifact@v4
         with:
           name: StreamerLife-Studio

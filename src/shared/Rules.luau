@@ -10,6 +10,17 @@ end
 function Rules.timing(elapsed, center, width)
 	return math.clamp(1 - math.abs(Rules.slider(elapsed) - center) / (width / 2), 0, 1)
 end
+function Rules.inputDelay(roundTripPing)
+	if
+		type(roundTripPing) ~= "number"
+		or roundTripPing ~= roundTripPing
+		or math.abs(roundTripPing) == math.huge
+	then
+		return 0
+	end
+	-- Roblox GetNetworkPing is round-trip seconds. Never use a client-supplied clock.
+	return math.clamp(roundTripPing / 2, 0, 0.25)
+end
 function Rules.move(cell, direction, size)
 	local x, z = (cell - 1) % size, math.floor((cell - 1) / size)
 	if direction == "Left" then
