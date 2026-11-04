@@ -45,8 +45,19 @@ while workspace:GetAttribute("QAPhase") ~= "Done" do
 			visible and right.X > point.X and up.Y < point.Y,
 			"Fall world directions disagree with UI grid"
 		)
+		local hidden = false
+		for _, room in ipairs(workspace.ViralCity:GetChildren()) do
+			local roof = room:FindFirstChild("CameraRoof")
+			if roof then
+				local delta = center - roof:GetAttribute("StudioCenter")
+				if math.abs(delta.X) < 14 and math.abs(delta.Z) < 16 then
+					hidden = roof.LocalTransparencyModifier == 1
+				end
+			end
+		end
+		assert(hidden, "Fall arena is obscured by its studio roof")
 		cameraChecked = true
-		print("QA PASS Fall camera projects Right/Up consistently with the control grid")
+		print("QA PASS Fall camera Right/Up projection and unobstructed studio roof")
 	end
 	if nextPhase == "Security" and phase ~= nextPhase then
 		send("Grant", { money = 1e30, subscribers = 1e30 })

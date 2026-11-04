@@ -5,7 +5,7 @@ local Palette = require(game.ReplicatedStorage.Shared.SoundPalette)
 local F = { reduced = false, volume = 0.65, activeParticles = 0, maxParticles = 24 }
 local ui, voices, last, cursor = nil, {}, {}, 0
 local roofs, roofPoll = {}, 0
-function F.roofs(now, fall)
+function F.roofs(now, arenaCenter)
 	if now < roofPoll then
 		return
 	end
@@ -26,8 +26,9 @@ function F.roofs(now, fall)
 	for _, roof in ipairs(roofs) do
 		local delta = at - roof:GetAttribute("StudioCenter")
 		local inside = math.abs(delta.X) < 17 and math.abs(delta.Z) < 19 and delta.Y < 18
-		-- The overhead Fall camera sits beyond the front wall; hide only that nearby roof.
-		local arena = fall and math.abs(delta.X) < 17 and math.abs(delta.Z + 16) < 17
+		-- Match the arena to its studio independently of the overhead camera's viewing side.
+		local arenaDelta = arenaCenter and arenaCenter - roof:GetAttribute("StudioCenter")
+		local arena = arenaDelta and math.abs(arenaDelta.X) < 14 and math.abs(arenaDelta.Z) < 16
 		roof.LocalTransparencyModifier = if inside or arena then 1 else 0
 	end
 end

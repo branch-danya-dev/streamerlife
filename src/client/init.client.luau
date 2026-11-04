@@ -439,7 +439,8 @@ end)
 
 RunService.RenderStepped:Connect(function()
 	local s = state and state.session
-	UI.feedback.roofs(os.clock(), s and s.challenge and s.challenge.kind == "Fall")
+	local arena = s and s.challenge and s.challenge.kind == "Fall" and s.challenge.origin
+	UI.feedback.roofs(os.clock(), arena and arena + Vector3.new(7.5, 0, 7.5))
 	if not s then
 		return
 	end
