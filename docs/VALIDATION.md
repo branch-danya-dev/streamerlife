@@ -11,9 +11,10 @@ This is a draft MVP for owner acceptance, not an approved production release.
 | Luau syntax/bytecode compilation | PASS, all 16 scripts | Production and test scripts |
 | StyLua formatting | PASS | `src`, `tests` |
 | Rojo build | PASS | Normal and QA places, Rojo 7.7.1 |
+| GitHub Actions (Linux) | PASS | [Run 41814722834](https://github.com/branch-danya-dev/streamerlife/actions/runs/41814722834): tests, analysis, formatting, all-script compilation, both builds and downloadable artifacts |
 | Studio solo Play | PASS | GO LIVE, challenge cycling and rewards, END STREAM report, recording/trophy; `evidence/manual-report.jpg` |
 | Two-client integration | PASS | Two actual local Studio clients and server; action bots use real RemoteEvents; `evidence/studio-qa-results.txt` |
-| Studio phone portrait | Checked | Report and all three upgrade rows fit the iPhone 17 Pro preset; device emulation is not a physical-device performance test |
+| Studio phone portrait and landscape | Checked | Report and all three upgrade rows fit the iPhone 17 Pro preset in both orientations; device emulation is not a physical-device performance test |
 
 The two-client scenario verifies both players spawn in their own studio; forged Grant/price/score requests do not alter money; Timing, Rain and Fall all settle; the guest visits and sees the host; reactions and ballots arrive; repeated visits/reactions produce exactly one $1 bonus per player for that stream; a repeated Finish action produces only one recording; the three purchases subtract exactly $240; release and reacquisition preserve cash, equipment and the recording with a new lease token. Upgrade checks use an explicitly injected $500 test-only fixture after the earned stream. Actual play earned more than $60 before that fixture.
 
