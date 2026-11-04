@@ -27,7 +27,7 @@ function F.roofs(now, fall)
 		local delta = at - roof:GetAttribute("StudioCenter")
 		local inside = math.abs(delta.X) < 17 and math.abs(delta.Z) < 19 and delta.Y < 18
 		-- The overhead Fall camera sits beyond the front wall; hide only that nearby roof.
-		local arena = fall and math.abs(delta.X) < 17 and math.abs(delta.Z + 23) < 17
+		local arena = fall and math.abs(delta.X) < 17 and math.abs(delta.Z + 16) < 17
 		roof.LocalTransparencyModifier = if inside or arena then 1 else 0
 	end
 end

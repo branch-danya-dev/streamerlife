@@ -285,7 +285,12 @@ local function buildBoard(c)
 			savedCameraType = workspace.CurrentCamera.CameraType
 			workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 			local center = c.origin + Vector3.new(7.5, 0, 7.5)
-			workspace.CurrentCamera.CFrame = CFrame.lookAt(center + Vector3.new(0, 30, -23), center)
+			local view = CFrame.lookAt(center + Vector3.new(0, 36, -12), center)
+			-- Leave the avatar/arena beside the right-hand controls and above the front awning.
+			if UI.game.Position.X.Offset > 12 then
+				view += view.RightVector * 7
+			end
+			workspace.CurrentCamera.CFrame = view
 		end
 	end
 	if state.watching then
@@ -314,6 +319,7 @@ local function updateState(nextState)
 		elseif category then string.format(Strings.Goal, Strings[category], cheapest)
 		else Strings.Maxed
 	UI.game.Visible = s ~= nil
+	game:GetService("ProximityPromptService").Enabled = s == nil
 	UI.chat.Visible = not UI.compact and not UI.shortPortrait
 	local c = s and s.challenge
 	local key = (if c then c.id elseif s then "break:" .. tostring(s.nextAt) else "idle")
