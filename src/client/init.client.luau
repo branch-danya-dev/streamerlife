@@ -285,7 +285,8 @@ local function buildBoard(c)
 			savedCameraType = workspace.CurrentCamera.CameraType
 			workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 			local center = c.origin + Vector3.new(7.5, 0, 7.5)
-			local view = CFrame.lookAt(center + Vector3.new(0, 36, -12), center)
+			-- Look from +Z so world +X/-Z agrees with Right/Up on the control grid.
+			local view = CFrame.lookAt(center + Vector3.new(0, 36, 12), center)
 			-- Leave the avatar/arena beside the right-hand controls and above the front awning.
 			if UI.game.Position.X.Offset > 12 then
 				view += view.RightVector * 7
