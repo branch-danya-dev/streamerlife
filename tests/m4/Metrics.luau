@@ -1,5 +1,21 @@
 --!nonstrict
 local Metrics = {}
+function Metrics.print(prefix, value)
+	local encoded = game:GetService("HttpService"):JSONEncode(value)
+	-- Studio's disk logger truncates long print messages. Preserve every byte in bounded chunks.
+	local count = math.ceil(#encoded / 700)
+	for index = 1, count do
+		print(
+			prefix
+				.. " "
+				.. index
+				.. "/"
+				.. count
+				.. " "
+				.. string.sub(encoded, (index - 1) * 700 + 1, index * 700)
+		)
+	end
+end
 function Metrics.add(m, key, value)
 	if type(value) ~= "number" or value ~= value then
 		return

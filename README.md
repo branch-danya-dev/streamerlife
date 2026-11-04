@@ -35,12 +35,14 @@ For live sync, install the matching Rojo Studio plugin (`rojo plugin install`), 
 
 ```sh
 luau tests/domain.spec.luau
-luau-analyze src/shared tests/domain.spec.luau
+luau tests/persistence.spec.luau
+luau tests/latency.spec.luau
+luau-analyze src/shared src/server/Persistence.luau tests/domain.spec.luau tests/persistence.spec.luau tests/latency.spec.luau
 stylua --check src tests
 rojo build tests/studio.project.json -o StreamerLife-QA.rbxlx
 ```
 
-`scripts/check.ps1` also compiles every game and test script and builds both places. CI runs the same logic checks and uploads the normal place.
+`scripts/check.ps1` also compiles every game and test script and builds five places: normal, QA, M4 load, Latency and Manual. CI runs the same checks and uploads the places. The fault adapter and all fixture remotes/bots live under `tests/`; none are mapped into the normal place. `Persistence.luau` is the exact runtime save coordinator with injected I/O for deterministic tests, not a second persistence implementation.
 
 The QA place is **test-only**. Open it and select **Test → Server & Clients → 2 clients**. Bots send the same action protocol as the UI; the server checks spawning, forged reward rejection, all three challenges, a recording, studio visits, voting/reactions, social limits, all upgrade categories and a profile save/reacquire round-trip. Look for `QA ALL PASSED` in the server Output. The scenario takes about two minutes. It requires isolated memory mode and refuses published servers. Never publish the QA place.
 
@@ -54,18 +56,19 @@ The QA fixture does not replace manual touch/keyboard checks, actual DataStore f
 
 Each profile has a unique connection lease acquired with UpdateAsync. Autosave runs every 45 seconds; leases last 180 seconds. Writes are serialized and use increasing revisions; retries after lost responses are idempotent. Leave/shutdown releases the lease after a final save. If saving cannot renew a lease, actions stop and the player is disconnected before the lease can be reused. A crashed server can delay reconnecting for up to three minutes.
 
-Offline rewards are applied and saved atomically during acquisition. The time cursor never moves backwards. Each absence and each recording have an eight-hour earning cap; cumulative rounding prevents reconnect frequency from changing rewards. A crash can lose up to the autosave interval and can count the interval since the last save as offline time. These tradeoffs and the published test checklist are documented in [architecture and acceptance](docs/MVP.md).
+Offline rewards are applied and saved atomically during acquisition. The time cursor never moves backwards. Each absence and each recording have an eight-hour earning cap; cumulative rounding prevents reconnect frequency from changing rewards. A crash can lose progress since the last **successful** save and can count that unsaved interval as offline time. The normal autosave interval is 45 seconds; an outage can make the loss larger. Shutdown waits at most 25 seconds, including in-flight loads; an unresponsive service can outlast that window. These tradeoffs and the published test checklist are documented in [architecture and acceptance](docs/MVP.md).
 
 The persistence design follows Roblox's [UpdateAsync guidance](https://create.roblox.com/docs/cloud-services/data-stores) and [session-locking guidance](https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing).
 
 ## Boundaries and balance
 
 - Server owns currency, upgrade costs, RNG, challenge results, recording metadata and offline time. Remote handlers accept intentions; no endpoint accepts a reward amount, client score, price or timestamp.
-- Timing is scored at **server receipt time**. High latency therefore affects accuracy. The initial 700 ms announcement lead and 28% timing zone provide tolerance without trusting client clocks.
+- Timing uses server receipt time minus half the server-measured round-trip ping, sampled when the challenge begins and capped at 250 ms. No client clock/score is accepted. STOP freezes the local pointer immediately while waiting for the server. Asymmetric delay, jitter and latency beyond the cap can still reduce accuracy. [GetNetworkPing](https://create.roblox.com/docs/reference/engine/classes/Player#GetNetworkPing) documents round-trip seconds.
 - Don't Fall uses server-driven discrete tile movement and anchors the avatar during the challenge. This is intentional for verifiable results; it is not a free-jumping platformer.
 - Reactions have a cooldown. One visitor earns at most one mutual $1 bonus per host stream, with a persistent $30 daily cap per player; votes are limited to one per break. The first three selections offer unfinished games so every stream demonstrates all three.
 - Published recording income is deliberately below active play. Camera levels alter free recording odds; PC increases views, Microphone increases cash and subscribers. `Balance.luau` holds the tunable values.
 - The city has 16 studio slots. Set the published experience's maximum players to 16 during owner-controlled publication. This setting is not stored in the Rojo place.
+- Purchases carry the equipment level displayed to the player. Replaying an old purchase cannot buy another level or spend twice.
 - Snapshot replication is bounded at 5 Hz, directory updates at 1 Hz, and render animation uses one client loop. No unbounded chat/video history or external asset downloads are created by gameplay.
 
 ## Assets and ownership
@@ -73,3 +76,13 @@ The persistence design follows Roblox's [UpdateAsync guidance](https://create.ro
 All city geometry, equipment and interface elements are original programmatic Roblox primitives. There are no marketplace models, third-party scripts or downloaded textures. The notification sound references Roblox's installed `rbxasset://sounds/volume_slider.ogg`; it is not redistributed. Avatars and their cosmetics are Roblox-provided player content. See [asset notes](docs/ASSETS.md).
 
 Development is on `feature/issue-1-mvp`; `main` starts with the owner-authorized empty baseline. The pull request remains a draft pending acceptance. Do not merge or publish from this repository without the owner's manual acceptance.
+
+## M4 diagnostics and owner gates
+
+Build `tests/m4.project.json`, open the result and choose **Server & Clients → 8**. `Workspace.M4Clients` must match the actual client count (1–8). The scenario takes approximately 6.5 minutes after connection: 15 s warmup, 160 s real-client streams, 170 s with synthetic actors bringing the total profiles to 16, 35 s social interactions and 10 s cleanup observation. Client bots use actual RemoteEvents. Synthetic actors call the same server modules and create real arenas, but **are not network clients**. Logs label both counts and the memory backend. `M4 ALL PASSED` checks lifecycle correctness, not production performance acceptance. `M4_SERVER` and `M4_CLIENT` JSON messages are numbered chunks to avoid Studio disk-log truncation.
+
+Build `tests/latency.project.json` for a one-client Timing diagnostic. Configure Studio's Network Simulator **before Play**; run once with zero added delay and once with 150 ms inbound + 150 ms outbound, zero jitter/loss. Twenty real Stop requests are scored by production Minigames; the test also records the result the old receipt-time rule would have produced. It changes only test cadence and round selection. Keep each condition's `LATENCY_RESULT` separate. This automatic timing driver does not replace manual input testing.
+
+Build `tests/manual.project.json` for a manual Studio session. Its passive observer records first State/Start/Reward, stream reports, purchases and camera offsets. It sends no input, changes no profile and contains no automatic driver. Use mouse/keyboard and the device emulator yourself; retain `MANUAL` log lines. All diagnostic places are Studio-only and must never be published.
+
+See [OWNER-CHECKLIST](docs/OWNER-CHECKLIST.md) for exact private DataStore, physical-phone and 12–16 real-client steps. These remain **NOT VERIFIED — OWNER ACTION** until evidence exists. Publishing, access/API settings, and PR merge remain owner-controlled. A one-minute absence is not guaranteed to show $1: offline payouts are integer with a carried fractional cursor; the checklist computes the necessary wait from the displayed recording rate.

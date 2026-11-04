@@ -31,12 +31,14 @@ jobs:
         run: |
           stylua --check src tests
           find src tests -name '*.luau' -print0 | xargs -0 -n1 luau-compile --null
-      - name: Build both places
+      - name: Build normal place and four diagnostic places
         run: |
           mkdir -p build
           rojo build default.project.json -o build/StreamerLife.rbxlx
           rojo build tests/studio.project.json -o build/StreamerLife-QA.rbxlx
           rojo build tests/m4.project.json -o build/StreamerLife-M4.rbxlx
+          rojo build tests/latency.project.json -o build/StreamerLife-Latency.rbxlx
+          rojo build tests/manual.project.json -o build/StreamerLife-Manual.rbxlx
       - uses: actions/upload-artifact@v4
         with:
           name: StreamerLife-Studio

@@ -1,0 +1,9 @@
+model_score,streams,cash,views,first_affordable_seconds
+0.00,3,81,216,408.2
+0.50,3,390,1371,85.4
+0.75,3,540,1902,48.0
+1.00,3,690,2430,48.0
+camera=0 expected_popularity_multiplier=1.405
+camera=1 expected_popularity_multiplier=1.450
+camera=2 expected_popularity_multiplier=1.495
+camera=3 expected_popularity_multiplier=1.540

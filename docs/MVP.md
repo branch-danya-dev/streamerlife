@@ -6,7 +6,7 @@ Scope: [issue #1](https://github.com/branch-danya-dev/streamerlife/issues/1). A 
 
 - Rojo maps shared Luau modules, server services and one client controller into a reproducible place. The city and equipment are original procedural Roblox parts.
 - Server owns profiles, challenge clocks, input validation, rewards, popularity rolls, purchases and social allowances. Clients send bounded intentions only.
-- Hype Timing uses receipt time; Donation Rain uses a server-controlled catcher lane and scheduled drops; Don't Fall uses a server-controlled avatar on a discrete tile arena. This keeps outcomes verifiable without trusting client physics or submitted scores.
+- Hype Timing uses receipt time with bounded server-measured one-way latency compensation; Donation Rain uses a server-controlled catcher lane and scheduled drops; Don't Fall uses a server-controlled avatar on a discrete tile arena. This keeps outcomes verifiable without trusting client clocks, physics or submitted scores.
 - A 150-second stream alternates short challenges and voting breaks. Each challenge settles once. Early exit grants earned rewards but only a qualified stream produces a recording.
 - DataStore UpdateAsync acquires a per-user lease and atomically applies offline income. A unique connection token fences stale writers. Autosave, leaving and shutdown use the same serialized writer. Failed loading never creates a writable blank profile.
 - Studio defaults to isolated in-memory data. Published servers always use persistent data. Live-service tests require a separate published test experience.
@@ -19,6 +19,6 @@ Scope: [issue #1](https://github.com/branch-danya-dev/streamerlife/issues/1). A 
 - [x] M1 implementation: three complete solo challenges, immediate rewards, three visible upgrades, report.
 - [x] M2 implementation: versioned profiles, safe retries/leases, recordings, capped offline income, welcome back. Pure logic and memory persistence pass; published DataStore acceptance remains open.
 - [x] M3 implementation: visiting, live directory, reactions, voting, capped social bonuses. Two real Studio clients pass the integration scenario.
-- [ ] M4 final acceptance: automatic checks and two-client scenario pass; real-device, live DataStore and 12–16-player performance checks still require acceptance.
+- [ ] M4 final acceptance: automatic checks, two-client regression, eight-client load and network-impairment scenarios pass. Sixteen profiles were exercised with eight explicitly synthetic actors. Real-device, live DataStore and 12–16 actual-client performance checks still require acceptance.
 
 Implementation status and actual verification are recorded separately in `docs/VALIDATION.md`. A compiled place is not evidence of a passed interactive acceptance test. Publication and merge require owner acceptance.

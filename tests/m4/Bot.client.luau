@@ -55,7 +55,7 @@ while true do
 	local nextPhase = workspace:GetAttribute("M4Phase")
 	if phase ~= nextPhase then
 		if phase then
-			print("M4_CLIENT " .. Http:JSONEncode({
+			Metrics.print("M4_CLIENT", {
 				phase = phase,
 				metrics = Metrics.report(metrics),
 				received = received,
@@ -63,7 +63,7 @@ while true do
 				reports = reports,
 				firstStartSeconds = firstStart,
 				firstRewardSeconds = firstReward,
-			}))
+			})
 		end
 		phase = nextPhase
 		metrics = {}

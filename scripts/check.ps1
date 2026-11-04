@@ -18,3 +18,5 @@ New-Item -ItemType Directory -Path build -Force | Out-Null
 Invoke-Check 'rojo' @('build', 'default.project.json', '-o', 'build/StreamerLife.rbxlx')
 Invoke-Check 'rojo' @('build', 'tests/studio.project.json', '-o', 'build/StreamerLife-QA.rbxlx')
 Invoke-Check 'rojo' @('build', 'tests/m4.project.json', '-o', 'build/StreamerLife-M4.rbxlx')
+Invoke-Check 'rojo' @('build', 'tests/latency.project.json', '-o', 'build/StreamerLife-Latency.rbxlx')
+Invoke-Check 'rojo' @('build', 'tests/manual.project.json', '-o', 'build/StreamerLife-Manual.rbxlx')

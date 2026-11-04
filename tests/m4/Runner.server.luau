@@ -132,7 +132,7 @@ local function runPhase(name, seconds)
 			print("M4_PROGRESS " .. name .. " " .. math.floor(os.clock() - begin) .. "s")
 		end
 	end
-	print("M4_SERVER " .. Http:JSONEncode({
+	Metrics.print("M4_SERVER", {
 		phase = name,
 		seconds = os.clock() - begin,
 		realClients = #Players:GetPlayers(),
@@ -142,7 +142,7 @@ local function runPhase(name, seconds)
 		storageRequests = Store.requests - requests,
 		storageFailures = Store.failures,
 		backend = "memory",
-	}))
+	})
 end
 workspace:SetAttribute("M4Host", people[1].UserId)
 runPhase("Warmup", 15)

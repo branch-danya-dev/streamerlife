@@ -1,0 +1,53 @@
+{
+  "name": "StreamerLife-Manual",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "../src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "../src/server"
+      }
+    },
+    "StarterPlayer": {
+      "$properties": {
+        "CameraMaxZoomDistance": 60,
+        "CameraMinZoomDistance": 8
+      },
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "../src/client"
+        },
+        "ManualRecorder": {
+          "$path": "m4/Manual.client.luau"
+        }
+      }
+    },
+    "Workspace": {
+      "$properties": {
+        "Gravity": 196.2,
+        "StreamingEnabled": false
+      }
+    },
+    "Lighting": {
+      "$properties": {
+        "Technology": "ShadowMap",
+        "ClockTime": 17.5,
+        "Brightness": 2,
+        "Ambient": [
+          0.35,
+          0.35,
+          0.45
+        ],
+        "OutdoorAmbient": [
+          0.55,
+          0.55,
+          0.65
+        ]
+      }
+    }
+  }
+}
