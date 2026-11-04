@@ -121,6 +121,15 @@ for _, child in ipairs(UI.gui:GetChildren()) do
 	end
 end
 assert(count == 8, "sound pool is unbounded")
+local voice = UI.gui:FindFirstChild("CueVoice1")
+for name, source in pairs(require(Shared.SoundPalette).sources) do
+	voice:Stop()
+	voice.SoundId = source
+	game:GetService("ContentProvider"):PreloadAsync({ voice })
+	assert(voice.IsLoaded and voice.TimeLength > 0, "bundled sound failed to load: " .. name)
+end
 UI.settings()
 UI.closePanel()
-print("QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices)")
+print(
+	"QA VISUAL CLIENT PASSED (HUD, mute, reduced effects, particle cleanup, eight voices, three loaded sound sources)"
+)

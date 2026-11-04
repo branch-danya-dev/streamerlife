@@ -121,5 +121,34 @@ for _, studio in ipairs(City.rooms) do
 	)
 end
 print("QA PASS all 12 equipment variants, cached updates, 16 clear entry corridors")
+local equipment = require(server.Visuals.Equipment)
+for _, studio in ipairs(City.rooms) do
+	equipment.build(studio, { upgrades = { PC = 3, Microphone = 3, Camera = 3 } })
+end
+local parts, lights, glass = 0, 0, 0
+for _, item in ipairs(City.world:GetDescendants()) do
+	if item:IsA("BasePart") then
+		parts += 1
+		if item.Material == Enum.Material.Glass then
+			glass += 1
+		end
+	elseif item:IsA("Light") then
+		lights += 1
+	end
+end
+assert(parts <= 3600 and lights <= 16 and glass <= 16, "16 max-level studios exceed visual instance budget")
+print(
+	"QA VISUAL BUDGET "
+		.. game:GetService("HttpService")
+			:JSONEncode({ maxLevelStudios = 16, parts = parts, lights = lights, glass = glass })
+)
+for _, studio in ipairs(City.rooms) do
+	equipment.build(
+		studio,
+		if studio.owner
+			then Store.get(studio.owner)
+			else { upgrades = { PC = 0, Microphone = 0, Camera = 0 } }
+	)
+end
 workspace:SetAttribute("QAPhase", "Done")
 print("QA ALL PASSED (two real Studio clients, memory backend)")
